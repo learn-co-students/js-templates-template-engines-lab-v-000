@@ -29,8 +29,7 @@ element.
 4. Create a `comment-template` that will hold an individual comment.
    Should have a `footer` for the commenter name.
 5. Provide a form with an id of `post-form` to create a blog post with a title, body, and author. Submitting the form should
-   build the page template with the post inside. It's okay if the form
-goes away after you make your blog post! Make the form submit using a
+   build the page template with the post inside. Make the form submit using a
 `createPost()` function.
 6. Provide a form within the `comments-template` to post comments, including commenter name and comment
    text. These should use the template to

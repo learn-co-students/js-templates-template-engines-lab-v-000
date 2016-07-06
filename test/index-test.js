@@ -3,23 +3,35 @@ const expect = require('expect')
 const fs = require('fs')
 const jsdom = require('mocha-jsdom')
 const path = require('path')
-var _ = require('lodash')
-
 
 describe('index', () => {
-
   jsdom({
     html: fs.readFileSync(path.resolve(__dirname, '..', 'index.html'), 'utf-8'),
     src: fs.readFileSync(path.resolve(__dirname, '..', 'index.js'), 'utf-8')
   })
 
+  describe('post form', () => {
+    it('exists and submits correctly', () => {
+      var postForm = document.getElementById("post-form");
+      expect(postForm).toExist("Must have a form with an id of post-form");
+      expect(postForm).toMatch(/onsubmit="createPost()/, "Form must submit to a createPost() function");
+    })
+  })
+
   describe('functions', () => {
+    before(() => {
+      window._ = require('lodash')
+    })
+
     describe('createPost', () => {
       it('exists', () => {
         expect(createPost).toExist("Must have a function named createPost")
       })
       it('builds the proper templates', () => {
-
+        var spy = expect.spyOn(window._, 'template').andCallThrough()
+        createPost()
+        expect(spy).toHaveBeenCalledWith(document.getElementById("page-template").innerHTML)
+        expect(spy).toHaveBeenCalledWith(document.getElementById("post-template").innerHTML)
       })
     })
 
@@ -28,18 +40,11 @@ describe('index', () => {
         expect(postComment).toExist("Must define a function named postComment")
       })
       it('builds the proper templates', () => {
-        var spy = expect.spyOn(_, 'template').andReturn("test")
+        createPost()
+        var spy = expect.spyOn(window._, 'template').andReturn(function(){})
         postComment()
-        expect(lodashSpy).toHaveBeenCalledWith(document.getElementById("comment-template").innerHTML);
+        expect(spy).toHaveBeenCalledWith(document.getElementById("comment-template").innerHTML)
       })
-    })
-  })
-
-  describe('post form', () => {
-    it('exists and submits correctly', () => {
-      var postForm = document.getElementById("post-form");
-      expect(postForm).toExist("Must have a form with an id of post-form");
-      expect(postForm).toMatch(/onsubmit="createPost()/, "Form must submit to a createPost() function");
     })
   })
 
