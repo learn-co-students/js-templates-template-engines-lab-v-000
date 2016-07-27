@@ -1,15 +1,4 @@
-const expect = require('expect')
-
-const fs = require('fs')
-const jsdom = require('mocha-jsdom')
-const path = require('path')
-
 describe('index', () => {
-  jsdom({
-    html: fs.readFileSync(path.resolve(__dirname, '..', 'index.html'), 'utf-8'),
-    src: fs.readFileSync(path.resolve(__dirname, '..', 'index.js'), 'utf-8')
-  })
-
   describe('post form', () => {
     it('exists and submits correctly', () => {
       var postForm = document.getElementById("post-form");
