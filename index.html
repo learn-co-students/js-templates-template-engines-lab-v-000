@@ -6,13 +6,53 @@
   <body>
     <main>
     </main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        <h3>Post-form</h3>
+        <input type="text" name="title" id="post-title"><br>
+        <input type="text" name="body" id="post-body"><br>
+        <input type="text" name="author" id="post-author"><br>
+        <input type="submit" name="submit">
+      </form>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+        <div id="post"></div>
+        <div id="sidebar"></div>
+      </script>
+
+      <script id="post-template" type="text/x-lodash-template">
+          <article>
+            <header><h3><%- title %></h3></header>
+            <p><%- body %></p>
+            <p>Posted by:<%- author %></p>
+            <footer></footer>
+          </article>
+        </script>
+
+        <script id="comments-template" type="text/x-lodash-template">
+            <div id="comments"></div>
+              <form onsubmit="postComment();return false;">
+                <input type="text" id="comment"><br>
+                <input type="text" id="commenter"><br>
+                <input type="submit" name="submit">
+              </form>
+          </script>
+
+          <script id="comment-template" type="text/x-lodash-template">
+              <article>
+                <p><%- comment %></p>
+                <footer>Posted by:<%- commenter %></footer>
+              </article>
+            </script>
+
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
   </body>
