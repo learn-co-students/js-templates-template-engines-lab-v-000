@@ -5,13 +5,41 @@
   </head>
   <body>
     <main>
-      <form class="" onsubmit="createPost();return false;" method="post" id="post-form">
-
+      <form id="post-form" onsubmit="createPost(); return false;">
+        Name:<input type="text" id="author"><br>
+        Content:<input type="text" id="post"><br>
+        <input type="submit"/>
       </form>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
-    <!-- Open this file and call `mocha.run()` in console to run tests -->
+
+    <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar"> </div>
+        <div id="post"> </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header> </header>
+        <footer> </footer>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment(); return false;">
+
+        </form>
+      </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer>
+      </footer>
+    </script>
+
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
