@@ -10,20 +10,20 @@
         Text: <input type="text" id="postText"><br>
         Author: <input type="text" id="postAuthor"><br>
         <input type="submit">
+      </form>
     </main>
 
     <script id="page-template" type="text/x-lodash-template">
-      <div class="page">
         <div id="post"></div>
         <div id="sidebar"></div>
-      </div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
-      <div class="article">
-        <p class="header"><%- postTitle %></p>
-        <p class="footer"><%- postAuthor%></p>
-      </div>
+      <article>
+        <header><%- postTitle %></header>
+        <p><%- postText %></p>
+        <footer>Posted by:<%- postAuthor%></footer>
+      </article>
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
@@ -36,8 +36,8 @@
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
-      <div class="comment"></div>
-      <p class="footer"></p>
+      <div class="comment"><%- commentText%></div>
+      <p class="footer"><%- commenterName%></p>
     </script>
 
     <script src="node_modules/lodash/lodash.min.js"></script>
