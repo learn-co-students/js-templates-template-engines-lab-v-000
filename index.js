@@ -25,6 +25,6 @@ function postComment() {
 
   var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
   var commentHTML = commentTemplate({ 'commentText': commentText, 'commenterName': commenterName});
-  var mainDiv = document.getElementsByTagName("main")[0];
-  mainDiv.innerHTML += commentHTML;
+  var commentsDiv = document.getElementById("comments");
+  commentsDiv.innerHTML += commentHTML;
 }
