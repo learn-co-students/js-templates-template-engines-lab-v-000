@@ -5,8 +5,20 @@
   </head>
   <body>
     <main>
+
+    <form id="post-form" onSubmit="createPost();return false;">
+      Blogger Name: <br>
+      <input type="text" id="bloggerName"> <br>
+      Post Title: <br>
+      <input type="text" id="postTitle"> <br>
+      Post Content: <br>
+      <textarea id="postContent" form="post-form"></textarea> <br>
+      <input type="submit">
+    </form>
+
+
     </main>
-    <script src="node_modules/lodash/lodash.min.js"></script>
+    <script src="lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
@@ -15,5 +27,42 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+      </div>
+      <div id="post">
+      </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <h2 class="header"><%- postTitle %></h2>
+        <p class="postBody"><%- postContent  %></p>
+        <p class="footer"><em>By <%- bloggerName %> </em></p>
+      </article>
+    </script>
+
+    <!-- done with all above this -->
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div class="commentsSection"></div>
+      <form onsubmit="postComment(); return false;" id="comment-form", >
+        Content: <br/>
+        <textarea id="commentContent" form="comment-form" cols="30" rows="10"></textarea> <br/>
+        Commenter Name: <br/>
+        <input type="text" id="commenterName"> <br/>
+        <input type="submit"/>
+      </form>
+      <div id="comments"></div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <p class="commentBodyText"> <%- commentContent  %> </p>
+      <div class="footer">
+        <p class="commenterNameDisplay">By <%- commenterName %></p>
+      </div>
+    </script>
+
   </body>
 </html>
