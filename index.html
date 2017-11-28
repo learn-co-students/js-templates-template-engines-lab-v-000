@@ -3,8 +3,29 @@
   <head>
     <title>JavaScript lodash Templates Lab</title>
   </head>
-  <body>
-    <main>
+  <body onload= "loadPageTemplate()">
+
+        <main id="main">
+          <div class="container">
+            <div class="row">
+          <form id="post-form" onsubmit="createPost();return false;">
+            Title:
+            <br>
+            <input type="text" id="postTitle">
+            <br> 
+            Content:
+            <br>
+            <input type="textarea" id="postContent">
+            <br>
+            Author:
+            <br>
+            <input type="text" id="postAuthor">
+            <br>
+            <input type="submit">
+
+          </form>
+        </div>
+        </div>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -13,7 +34,53 @@
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+        <div class="row">
+                <div class="col-md-2"><div id="sidebar"></div></div>
+                <div class="col-md-10"><div id="post"></div></div>
+        </div>
+        <div class="row justify-content-center" >
+          <div class="container" id="comments-box"></div>
+        </div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <div class="container">
+          <header><%= title %></header>
+            <div> <%= content%> </div>
+          <footer> <%= author%> </footer>
+        </div>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment();return false;">
+        Name:
+        <input type="text" id="commenterName">
+        <br> Comment:
+        <input type="textarea" id="commentText">
+        <br>
+        <input type="submit">
+      </form>
+      <div id="comments"></div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="comment">
+        <div class="comment-body"><%= comment %></div>
+        <div class="commenter">
+          <footer>
+            <span class="posted-by">Posted By: </span>
+            <%= commenter %>
+          </footer>
+        </div>
+      </div>
+    </script>
   </body>
 </html>
+
+
