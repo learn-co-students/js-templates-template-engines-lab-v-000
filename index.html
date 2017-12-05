@@ -10,6 +10,32 @@
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
+
+    <form id="post-form" onsubmit="createPost()">
+      <input type="text" type="title"></input>
+      <input type="submit"></input>
+    </form>
+
+    <script type="text/x-lodash-template" id="page-template">
+      <div id="post">
+        <div id="sidebar"></div>
+      </div>
+    </script>
+    <script type="text/x-lodash-template" id="post-template">
+      <header></header>
+        <article></article>
+      <footer></footer>
+    </script>
+    <script type="text/x-lodash-template" id="comment-template">
+      <footer></footer>
+    </script>
+    <script type="text/x-lodash-template" id="comments-template">
+        <div id="comments">
+          <form onsubmit="postComment()">
+
+          </form>
+        </div>
+    </script>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
