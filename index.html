@@ -8,7 +8,7 @@
       <form id='post-form' onsubmit="createPost();return false;">
         Title: <input type="text" id="postTitle"><br>
         Author: <input type="text" id="postAuthor"><br>
-        Body: <input type="textarea" id="postBody"><br>
+        Post: <input type="textarea" id="postBody"><br>
       <input type="submit">
     </form>
     </main>
@@ -16,33 +16,32 @@
     <script src="index.js"></script>
 
     <script id="page-template" type="text/x-lodash-template">
-        <div class="page">
           <div id="sidebar"><%= sidebar %></div>
           <div id="post"><%= post %></div>
-        </div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
-        <article class="post">
-          <header><%= postTitle %></header>
-          <footer><%= postAuthor %></footer>
+        <article>
+          <header><h2><%= title %></header>
+          <p><%= body %></p>
+          <footer><%= poster %></footer>
         </article>
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-        <div class="comments">
-          <div id="comments"><%= comments %></div>
-        </div>
-        <form onsubmit="postComment();return false;">
-          Name: <input type="text" id="commenterName"><br>
-          Comment: <input type="textarea" id="commenterText"><br>
-        <input type="submit">
-          </form>
+          <div id="comments">
+            <form onsubmit="postComment();return false;">
+              Name: <input type="text" id="commenter"><br>
+              Comment: <input type="text" id="commentText"><br>
+                <input type="submit">
+            </form>
+          </div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
         <article class="comment">
-          <footer><%= postAuthor %></footer>
+          <p><%= comment %></p>
+          <footer>Posted by: <%= commenter %></footer>
         </article>
     </script>
 
