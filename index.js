@@ -9,11 +9,11 @@ function createPost(){
   var postAuthor = document.getElementById("postAuthor").value;
   var postBody = document.getElementById("postBody").value;
 
-  // what is happening here??? 
+  // what is happening here???
   document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
 
-  var blogSection = postTemplate({ 'postTitle': postTitle, 'body': postBody, 'poster': postAuthor });
+  var blogSection = postTemplate({ 'title': postTitle, 'body': postBody, 'poster': postAuthor });
   var commentsSection = commentsTemplate();
   var postElement = document.getElementById("post");
 
