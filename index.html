@@ -30,13 +30,15 @@
           <%= title %>
         </header>
         <footer>
-          <p>Posted By: <%= author %></p>
+          <p>Posted By: p<%= author %></p>
         </footer>
       </article>
     </script>
 
-    <div id="comments">
-      
+    <div>
+      <form id="make-comment" onsubmit="createComment()">
+
+      </form>
     </div>
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
