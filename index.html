@@ -13,8 +13,8 @@
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
-      
-    <script>
+
+    <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar">
 
       </div>
@@ -22,6 +22,22 @@
 
       </div>
     </script>
+
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+          <%= title %>
+        </header>
+        <footer>
+          <p>Posted By: <%= author %></p>
+        </footer>
+      </article>
+    </script>
+
+    <div id="comments">
+      
+    </div>
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
