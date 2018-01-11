@@ -23,6 +23,8 @@ function createPost() {
 }
 
 function createComment() {
+  debugger;
+/*
   const commentTemplate = _.template(document.getElementById('comment-template').innerHTML)
 
   const commentObj = {
@@ -30,5 +32,11 @@ function createComment() {
     commenter: document.getElementById('commenter').value
   }
 
+
+
   document.getElementById('comments').innerHTML += commentTemplate(commentObj)
+
+  */
+
+  console.log('Hello');
 }
