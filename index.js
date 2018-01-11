@@ -22,9 +22,8 @@ function createPost() {
   postHTML.getElementsByTagName('footer')[0].innerHTML += commentsTemplate()
 }
 
-function createComment() {
-  debugger;
-/*
+function postComment() {
+
   const commentTemplate = _.template(document.getElementById('comment-template').innerHTML)
 
   const commentObj = {
@@ -36,7 +35,6 @@ function createComment() {
 
   document.getElementById('comments').innerHTML += commentTemplate(commentObj)
 
-  */
 
-  console.log('Hello');
+
 }
