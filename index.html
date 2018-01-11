@@ -41,10 +41,11 @@
 
 
     <script id="comments-template"type="text/x-lodash-template">
-      <div>
-        <form id="make-comment" onsubmit="createComment()">
+      <div id="make-comment">
+        <form onsubmit="createComment(); return false;">
           Comment: <input type="text" id="comment">
           Name: <input type="text" id="commenter">
+          <input type="submit">
         </form>
       </div>
       <div id="comments">

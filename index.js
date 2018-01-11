@@ -9,14 +9,28 @@ function createPost() {
     document.getElementsByTagName('main')[0].innerHTML += pageTemplate()
   }
 
+debugger;
   const postObj = {
     title: document.getElementById('post-title').value,
     body: document.getElementById('post-body').value,
     author: document.getElementById('post-author').value
   }
 
-  document.getElementById('post').innerHTML = postTemplate(postObj)
 
-  // put commentsTemplate into footer
+  let postHTML = document.getElementById('post')
 
+  postHTML.innerHTML = postTemplate(postObj)
+
+  postHTML.getElementsByTagName('footer')[0].innerHTML += commentsTemplate()
+}
+
+function createComment() {
+  const commentTemplate = _.template(document.getElementById('comment-template').innerHTML)
+
+  const commentObj = {
+    comment: document.getElementById('comment').value,
+    commenter: document.getElementById('commenter').value
+  }
+
+  document.getElementById('comments').innerHTML += commentTemplate(commentObj)
 }
