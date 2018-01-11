@@ -8,7 +8,7 @@ function createPost() {
    //create template function
    var templateFn = _.template(postTemplate);
 
-   var postsDiv = document.getElementById("post").innerHTML;
+   var postsDiv = document.getElementById("page-template").innerHTML;
 
    var pageTemplateFn = _.template(postsDiv);
 
@@ -20,7 +20,8 @@ function createPost() {
 }
 
 function postComment() {
-  var comment = document.getElementById("comment").value;
+  debugger;
+  var comment = document.getElementById("comments-template");
   var commenter = document.getElementById("commenter").value;
 
   var commentTemplate = document.getElementById("comment-template").innerHTML;
@@ -28,11 +29,12 @@ function postComment() {
   //create template function
   var templateFn = _.template(commentTemplate);
 
-  var commentsDiv = document.getElementById("comments");
+  var commentsDiv = document.getElementById("comments-template").innerHTML;
+
 
   //execute template function with JSON object for the interpolated values
   var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
 
   //append rather than replace!
-  commentsDiv.innerHTML += templateHTML;
+  commentsDiv += templateHTML;
 }

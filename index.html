@@ -23,6 +23,12 @@
       <input type="submit">
     </form>
 
+    <form onsubmit="postComment();return false;" id="comment-form" >
+      comment: <input type="textarea" id="comment"><br>
+      Commenter: <input type="textarea" id="commenter"><br>
+      <input type="submit">
+    </form>
+
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar" class="w3-sidebar w3-bar-block" style="width:25%">
           <a href="#" class="w3-bar-item w3-button">Link 1</a>
@@ -49,7 +55,7 @@
         </div>
 
         <form onsubmit="postComment();return false;" id="comment-form" >
-          Comment: <input type="textarea" id="comment"><br>
+          comment: <input type="textarea" id="comment"><br>
           Commenter: <input type="textarea" id="commenter"><br>
           <input type="submit">
         </form>
@@ -61,7 +67,7 @@
           <header id="post-title"></header>
             <div id="comment-body"><%= comment %></div>
             </div>
-          <footer id="commenter-name"></footer>
+          <footer id="commenter-name"><%= commenter %></footer>
         </article>
     </script>
 
