@@ -35,11 +35,29 @@
       </article>
     </script>
 
-    <div>
-      <form id="make-comment" onsubmit="createComment()">
 
-      </form>
-    </div>
+    <script id="comments-template"type="text/x-lodash-template">
+      <div>
+        <form id="make-comment" onsubmit="createComment()">
+          Comment: <input type="text" id="comment">
+          Name: <input type="text" id="commenter">
+        </form>
+      </div>
+      <div id="comments">
+
+      </div>
+    </script>
+
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="posted-comment">
+        <p><%= comment %></p>
+        <footer>
+          <p>by: <%= commenter %></p>
+        </footer>
+      </div>
+    </script>
+
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
