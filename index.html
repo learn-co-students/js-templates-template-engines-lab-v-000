@@ -5,22 +5,26 @@
   </head>
   <body>
     <main>
-      <form id="make-post" onsubmit="createPost()">
-        Title: <input type="text" id="post-title">
-        Body: <input type="text" id="post-body">
-        Author: <input type="text" id="post-author">
+      <form id="make-post" onsubmit="createPost();return false;">
+        Title: <input type="text" id="post-title"></br>
+        Body: <input type="text" id="post-body"></br>
+        Author: <input type="text" id="post-author"></br>
+        <input type="submit"></br>
       </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
 
     <script id="page-template" type="text/x-lodash-template">
-      <div id="sidebar">
+      <div>
+        <div id="sidebar">
 
-      </div>
-      <div id="post">
+        </div>
+        <div id="post">
 
+        </div>
       </div>
+
     </script>
 
 
