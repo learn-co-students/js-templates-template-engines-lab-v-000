@@ -5,14 +5,13 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="title"><br>
+        Body: <input type="textarea" id="body"><br>
+        Author: <input type="text" id="author"><br>
+        <input type="submit">
+      </form>
     </main>
-
-    <form id="post-form" onsubmit="createPost();return false;">
-      Title: <input type="text" id="title"><br>
-      Body: <input type="textarea" id="body"><br>
-      Author: <input type="text" id="author"><br>
-      <input type="submit">
-    </form>
 
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
