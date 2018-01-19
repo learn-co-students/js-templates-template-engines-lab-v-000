@@ -1,37 +1,34 @@
 function createPost() {
-  // data for blog new blog post
   var title = document.getElementById("postTitle").value;
-  var author = document.getElementById("postAuthor").value;
   var body = document.getElementById("postBody").value;
+  var author = document.getElementById("postAuthor").value;
 
-  // template functions
-  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
-  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
-  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
+  //create post to insert into page
+  var postTemplate = document.getElementById("post-template").innerHTML;
+  var postTemplateFn = _.template(postTemplate);
+  var post = postTemplateFn({'title': title, 'body': body, 'author': author});
 
-  // add page template to main
-  document.getElementById("page").innerHTML += pageTemplate();
+  //create sidebar/comments section to insert into page
+  var commentsSection = document.getElementById("comments-template").innerHTML;
 
-  // create sectons on the page for different content
-  var post = postTemplate({'title': title, 'body': body, 'author': author});
-  // var comments
-  var postElement = document.getElementById("post");
-  var commentsSection = commentsTemplate();
+  //create page layout for post
+  var pageTemplate = document.getElementById("page-template").innerHTML;
+  var pageTemplateFn = _.template(pageTemplate);
+  var pageHTML = pageTemplateFn({'post': post, 'sidebar': commentsSection});
 
-  // add post to post element on page
-  postElement.innerHTML = post;
-  postElement.innerHTML += commentsSection;
+  var mainElement = document.getElementById("main");
+  mainElement.innerHTML = pageHTML;
 }
 
 function postComment() {
-  // data for new comment
-  var commenter = document.getElementById("commenterName").value;
+  event.preventDefault();
   var comment = document.getElementById("commentText").value;
+  var commenter = document.getElementById("commenterName").value;
 
-  // template function
-  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+  var commentTemplate = document.getElementById("comment-template").innerHTML;
+  var commentTemplateFn = _.template(commentTemplate);
+  var commentHTML = commentTemplateFn({'comment': comment, 'commenter': commenter});
 
-  // get comments section and add new comment
-  var commentsSection = document.getElementById("comments");
-  commentsSection.innerHTML += commentTemplate({'comment': comment, 'commenter': commenter});
+  var commentsDiv = document.getElementById("comments");
+  commentsDiv.innerHTML += commentHTML;
 }
