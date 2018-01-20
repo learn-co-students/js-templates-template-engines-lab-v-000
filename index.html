@@ -5,7 +5,7 @@
   </head>
   <body>
     <main id="main">
-      <form id="post-form" onsubmit="createPost()">
+      <form id="post-form" onsubmit="createPost();return false">
         Title: <input type="text" id="postTitle" /><br />
         Post Body: <textarea id="postBody"></textarea><br />
         Author: <input type="text" id="postAuthor" /><br />
@@ -18,14 +18,19 @@
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
 
     <!-- Lodash Templates -->
     <script id="page-template" type="text/x-lodash-template">
-      <div id="post"><%= post %></div>
-      <div id="sidebar"><%= sidebar %></div>
+      <div id="post">
+        <%= post %>
+        <footer id="comments">
+        </footer>
+        </footer>
+      </div>
+      <div id="sidebar"></div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
@@ -43,7 +48,7 @@
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-      <form id="comment-form" onsubmit="postComment()">
+      <form onsubmit="postComment();return false;" id="comment-form">
         Comment: <textarea id="commentText"></textarea><br />
         Your Name: <input type="text" id="commenterName" /><br />
         <input type="submit" />
@@ -53,10 +58,10 @@
 
     <script id="comment-template" type="text/x-lodash-template">
       <div class="comment">
-        <p>
+        <p class="comment">
           <%= comment %>
         </p>
-        <footer>
+        <footer class="commenter">
           Comment by: <%= commenter %>
         </footer>
       </div>
