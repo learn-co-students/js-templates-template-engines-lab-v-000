@@ -1,4 +1,5 @@
 function createPost() {
+  debugger
   var title = document.getElementById("postTitle").value;
   var body = document.getElementById("postBody").value;
   var author = document.getElementById("postAuthor").value;
@@ -23,7 +24,6 @@ function createPost() {
 }
 
 function postComment() {
-  event.preventDefault();
   var comment = document.getElementById("commentText").value;
   var commenter = document.getElementById("commenterName").value;
 
