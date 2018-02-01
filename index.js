@@ -1,0 +1,7 @@
+function createPost() {
+
+}
+
+function postComment() {
+
+}
