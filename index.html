@@ -6,6 +6,12 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onSubmit="createPost()">
+        Title: <input type="text" id="postText"><br>
+        Body: <input type="text" id="postBody"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -16,6 +22,37 @@
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="test/index-test.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+
+      </div>
+      <div id="post">
+
+      </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+
+        </header>
+        <footer>
+
+        </footer>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment()">
+          Add comment: <input type="text" id="commentText"><br>
+          Your name: <input type="text" id="commenterName"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
     <script id="comment-template" type="text/x-lodash-template">
       <div class="comment"><br>
         <div class="comment-body"><%- comment %></div>
@@ -24,7 +61,7 @@
             <p>
               <span class="posted-by">Posted By: </span>
               <% if(commenter !== '') { %>
-              <%= commenter %>
+              <%- commenter %>
               <% } else { %>
               Anonymous
               <% } %>
@@ -33,5 +70,6 @@
         </footer><br>
       </div>
     </script>
+
   </body>
 </html>
