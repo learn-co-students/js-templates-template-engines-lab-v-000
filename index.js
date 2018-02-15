@@ -23,16 +23,16 @@ function createPost() {
   var postTemplateFn = _.template(postTemplate);
   var postSection = postTemplateFn({ 'title': title, 'body': body, 'author': author })
   postDiv.innerHTML = postSection;
-  postHtml.getElementsByTagName("footer")[0].innerHTML = commentsSelection;
+  postDiv.getElementsByTagName("footer")[0].innerHTML = commentsSelection;
 }
 
 function postComment() {
 
-  //create template function
-  var templateFn = _.template(commentTemplate);
-
   //create template strings
   var commentTemplate = document.getElementById("comment-template").innerHTML;
+
+  //create template function
+  var templateFn = _.template(commentTemplate);
 
   var commenter = document.getElementById("commenter").value;
   var comment = document.getElementById("commentText").value;
