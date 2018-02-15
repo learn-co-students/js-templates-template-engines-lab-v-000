@@ -17,11 +17,14 @@ function createPost() {
   //create comment template function
   var commentsSelection = commentTemplateFn();
 
-  var sidebarDiv = document.getElementById("sidebar");
+  // var sidebarDiv = document.getElementById("sidebar");
   var postDiv = document.getElementById("post");
 
   //create post template function
+  debugger;
   var postTemplateFn = _.template(postTemplate);
+
+  //execute template function with JSON object for the interpolated values
   var postSection = postTemplateFn({ 'title': title, 'body': body, 'author': author })
   postDiv.innerHTML = postSection;
   postDiv.getElementsByTagName("footer")[0].innerHTML = commentsSelection;
