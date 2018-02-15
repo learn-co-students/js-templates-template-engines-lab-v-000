@@ -36,21 +36,24 @@
     <script id="post-template" type="text/x-lodash-template">
       <article>
         <header>
-
+          <%- title %>
         </header>
+        <p><%- body %></p> 
         <footer>
-
+          <%- author %>
         </footer>
       </article>
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-      <form onsubmit="postComment(); return false;">
-        Name: <input type="text" id="commenterName"><br><br>
-        Add comment: <input type="textarea" id="commentText"><br><br>
-        <input type="submit">
-      </form>
-      <div id="comments"></div>
+
+      <div id="comments">
+        <form onsubmit="postComment(); return false;">
+          Name: <input type="text" id="commenter"><br><br>
+          Add comment: <input type="textarea" id="commentText"><br><br>
+          <input type="submit">
+        </form>
+      </div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
@@ -60,7 +63,7 @@
           <div class="commenter">
             <p>
               <span class="posted-by">Posted By: </span>
-              <% if(commenter !== '') { %>
+              <% if(commenter !== "") { %>
               <%- commenter %>
               <% } else { %>
               Anonymous
