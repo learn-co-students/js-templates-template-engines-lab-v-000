@@ -14,9 +14,10 @@ function createPost() {
   var pageTemplateFn = _.template(pageTemplate);
   document.getElementsByTagName("main")[0].innerHTML += pageTemplateFn();
   var commentTemplateFn = _.template(commentsTemplate);
-
+  //create comment template function
   var commentsSelection = commentTemplateFn();
-  //var sidebarDiv = document.getElementById("sidebar");
+
+  var sidebarDiv = document.getElementById("sidebar");
   var postDiv = document.getElementById("post");
 
   //create post template function
