@@ -6,10 +6,10 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onSubmit="createPost()">
-        Title: <input type="text" id="postText"><br>
-        Body: <input type="text" id="postBody"><br>
-        Author: <input type="text" id="postAuthor"><br>
+      <form id="post-form" onSubmit="createPost(); return false;">
+        Title: <input type="text" id="postTitle"><br><br>
+        Body: <input type="text" id="postBody"><br><br>
+        Author: <input type="text" id="postAuthor"><br><br>
         <input type="submit">
       </form>
     </main>
@@ -27,6 +27,7 @@
       <div id="sidebar">
 
       </div>
+
       <div id="post">
 
       </div>
@@ -44,13 +45,12 @@
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-      <div id="comments">
-        <form onsubmit="postComment()">
-          Add comment: <input type="text" id="commentText"><br>
-          Your name: <input type="text" id="commenterName"><br>
-          <input type="submit">
-        </form>
-      </div>
+      <form onsubmit="postComment(); return false;">
+        Name: <input type="text" id="commenterName"><br><br>
+        Add comment: <input type="textarea" id="commentText"><br><br>
+        <input type="submit">
+      </form>
+      <div id="comments"></div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
