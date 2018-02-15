@@ -36,9 +36,11 @@
         <header>
           <%- title %>
         </header>
+
         <p><%- body %></p>
+        <%- author %><br><br>
+
         <footer>
-          <%- author %>
         </footer>
       </article>
     </script>
@@ -46,15 +48,17 @@
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
         <form onsubmit="postComment(); return false;">
-          Name: <input type="text" id="commenter"><br><br>
           Add comment: <input type="textarea" id="commentText"><br><br>
+          Name: <input type="text" id="commenter"><br><br>
           <input type="submit">
         </form>
       </div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
+      <br>
       <%= comment %>
+      <br><br>
       <footer>
         <%= commenter %>
       </footer>

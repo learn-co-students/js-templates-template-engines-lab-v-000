@@ -21,12 +21,16 @@ function createPost() {
   var postDiv = document.getElementById("post");
 
   //create post template function
-  debugger;
+
   var postTemplateFn = _.template(postTemplate);
 
   //execute template function with JSON object for the interpolated values
   var postSection = postTemplateFn({ 'title': title, 'body': body, 'author': author })
-  postDiv.innerHTML = postSection;
+
+  //append rather than replace!
+  postDiv.innerHTML += postSection;
+
+  //display comment form
   postDiv.getElementsByTagName("footer")[0].innerHTML = commentsSelection;
 }
 
