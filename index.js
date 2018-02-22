@@ -1,14 +1,24 @@
 function createPost() {
+    
+     var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+     
+     var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+     
+     var commentsTemplate =  _.template(document.getElementById("comments-template").innerHTML);
+     
+     
      var title = document.getElementById("postTitle").value;
      var content = document.getElementById("postContent").value;
      var author =  document.getElementById("postAuthor").value;
-     
-     var postTemplate = document.getElementById("post-template").innerHTML;
-     var templateFn = _.template(postTemplate);
+     document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
+     var commentsTemplateHTML = commentsTemplate();
+     var commentsDiv = document.getElementsByTagName("main")[0]
+     commentsDiv.innerHTML += commentsTemplateHTML
      
      var postDiv = document.getElementById("post");
      
-     var templateHTML = templateFn({ 'title': title, 'body': content, 'author': author });
+     
+     var templateHTML = postTemplate({ 'title': title, 'body': content, 'author': author });
      postDiv.innerHTML +=templateHTML
     
 }
@@ -17,40 +27,18 @@ function createPost() {
 
 
 function postComment() {
+
+    var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
     var comment = document.getElementById("commentText").value;
     var commenter = document.getElementById("commenterName").value;
+    document.getElementById("comments").innerHTML += commentTemplate({ 'comment': comment, 'commenter': commenter});
     
-    var commentTemplate = document.getElementById("comment-template").innerHTML;
-    var templateFn = _.template(commentTemplate);
-    
-    var commentDiv = document.getElementById("comments-template");
+  
+    // var commentDiv = document.getElementById("comments-template");
     
     
-    var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter});
-    commentDiv.innerHTML +=templateHTML
+    // var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter});
+    // commentDiv.innerHTML +=templateHTML
     
 }
 
-// function postComment() {
-//      var commenter = document.getElementById("commenterName").value;
-//       var comment = document.getElementById("commentText").value;
-     
-//       //insert comment into "comments" div in this format:
-//       //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
-     
-//       //create template string - THIS IS THE ONLY LINE WE HAVE TO CHANGE
-//       //var commentTemplate = '<div class="comment"><p><%= comment %></p><p>Posted By: <span class="commenter"><%= commenter %></span></p></div>';
-//       var commentTemplate = document.getElementById("comment-template").innerHTML;
-     
-//       //create template function
-//       var templateFn = _.template(commentTemplate);
-     
-//       var commentsDiv = document.getElementById("comments");
-     
-//       //execute template function with JSON object for the interpolated values
-//       var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
-     
-//       //append rather than replace!
-//       commentsDiv.innerHTML += templateHTML;
-
-// }
