@@ -20,12 +20,14 @@ function createPost() {
   // This takes the functions created above to insert the html and saves that html in a variable
   var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
   var commentsSection = commentsTemplate();
+
+// This tells where to put the two things above
   var postElement = document.getElementById("post");
 
   // I guess this finally takes the stuff and inserts it. No idea why there are this many steps.
   postElement.innerHTML = blogSection;
   postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
-    // When is the commentsTemplate inserted??
+    // When is the commentsTemplate inserted?? Right above
 
 }
 
