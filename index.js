@@ -1,0 +1,3 @@
+function code(){
+  return "Hi"
+};
