@@ -5,15 +5,67 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost() ; return false;">
+        Title: <input id="post-title"><br>
+        Author: <input type="text" id="post-author"><br>
+        Body: <input type="textarea" id="post-body"><br>
+        <input type="submit">
+      </form>  
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
+
+    <!-- Page template for full page display -->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>         
+      <div id="post"></div>
+    </script>
+
+    <!-- Comments template for new comment form and comments collection -->
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment();return false;">
+        Name: <input type="text" id="commenter-name"><br>
+        Comment: <input type="textarea" id="comment-text"><br>
+        <input type="submit">
+      </form>
+      <div id="comments"></div>
+    </script>
+
+    <!-- Comment template for display of indivdual comment -->
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <div>
+        <%=comment %>
+      </div>        
+      <footer>
+        <%=commenter%>
+      </footer>
+    </script>
+
+    <!-- Post template for display of individual post -->
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+          <%= postTitle %>
+        </header>
+        
+          <%= postBody %>
+        
+        <footer>
+          <%= postAuthor %><br>
+        </footer><br>
+      </article>
+    </script>
+
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    <script> mocha.run()</script>
   </body>
 </html>
+ 
