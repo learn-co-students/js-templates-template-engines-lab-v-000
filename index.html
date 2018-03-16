@@ -6,14 +6,16 @@
   <body>
     <main>
 
-      <article>
+      <div>
+        <h2>Creat New Post</h2>
         <form id="post-form" onsubmit="createPost();return false;">
           Title: <input type="text" id="postTitle"><br>
           Author: <input type="text" id="postAuthor"><br>
           Post: <input type="text" id="postBody"><br>
           <input type="submit">
         </form>
-      </article>
+      </div>
+      <br>
 
       <div id="page"></div>
 
@@ -22,35 +24,37 @@
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
 
-    <script id="page-template" type="text/x-lodash-template">
-      <div id="sidebar"></div>
-      <div id="post"></div>
-    </script>
-
-    <script id="post-template" type="text/x-lodash-template">
-      <article>
-        <header><h3><%- title %></h3></header>
-        <p><%- postBody %></p>
-        <footer>by <%- author %></footer>
-      </article>
-    </script>
-
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
-        <form id="comment-form" onsubmit="postComment();return false;">
-          Name: <input type="text" id="commenterName"><br>
-          Comment: <input type="text" id="commentText"><br>
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenter"><br>
+          Your comment: <input type="text" id="commentText"><br>
           <input type="submit">
         </form>
       </div>
     </script>
 
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+      <h4>Add comments:</h4>
+      <div id="comment"> </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><h3>Title: <%- title %></h3></header>
+        <p><%- postBody %></p>
+        <footer>Written by: <%- author %></footer>
+      </article><br>
+    </script>
+
+
     <script id="comment-template" type="text/x-lodash-template">
-      <div class="comment">
       <p><%= comment %></p>
       <footer>Posted By: <span class="commenter"><%= commenter %></span></footer>
-      </div>
     </script>
+
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>

@@ -2,12 +2,13 @@ function updatePage() {
   //create template string
   var pageTemplate = document.getElementById("page-template").innerHTML;
   //create template function
-  var pageFn = _.template(postTemplate);
+  var pageFn = _.template(pageTemplate);
 
   var pageDiv = document.getElementById("page");
 
   //append rather than replace!
-  postDiv.innerHTML += pageTemplate;
+  pageDiv.innerHTML += pageFn();
+
 }
 
 function createPost() {
@@ -16,6 +17,7 @@ function createPost() {
   var postBody = document.getElementById("postBody").value;
   //insert comment into "comments" div in this format:
   //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
+  updatePage();
 
   //create template string
   var postTemplate = document.getElementById("post-template").innerHTML;
@@ -25,23 +27,31 @@ function createPost() {
 
   //append rather than replace!
   postDiv.innerHTML += postFn({ 'title': title, 'author': author, 'postBody': postBody });
-
+  addCommentForm();
   updatePage();
+
 }
 
+function addCommentForm() {
+  var commentTemplate = document.getElementById("comments-template").innerHTML;
+  var commentFn = _.template(commentTemplate);
+  var commentDiv = document.getElementById("comment");
+
+  commentDiv.innerHTML += commentFn();
+}
 
 function postComment() {
-  var commenter = document.getElementById("commenterName").value;
-  var comment = document.getElementById("commentText").value;
-  //insert comment into "comments" div in this format:
-  //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
 
   //create template string
-  var commentTemplate = '<div class="comment"><p><%= comment %></p><footer>Posted By: <span class="commenter"><%= commenter %></span></footer></div>';
+  var commentTemplate = document.getElementById("comment-template").innerHTML;
+
+  var comment = document.getElementById("commentText").value;
+  var commenter = document.getElementById("commenter").value;
+
   //create template function
   var templateFn = _.template(commentTemplate);
 
-  var commentsDiv = document.getElementById("comment");
+  var commentsDiv = document.getElementById("comments-template");
 
   //execute template function with JSON object for the interpolated values
   var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
