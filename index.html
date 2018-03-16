@@ -15,5 +15,34 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+      </div>
+      <div id="post">
+      </div>
+    </script>
+
+
+    <script id="blog-template" type="text/x-lodash-template">
+      <article>
+        <header></header>
+        <footer></footer>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+    </script>
+
+    <form id="post-form" onSubmit="createPost()">
+      Title: <input type="text" id="postTitle"><br>
+      Body: <input type="text" id="postBody"><br>
+      Author: <input type="text" id="postAuthor"><br>
+      <input type="submit">
+    </form>
+
   </body>
 </html>
