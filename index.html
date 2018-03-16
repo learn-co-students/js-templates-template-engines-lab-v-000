@@ -7,7 +7,7 @@
     <main>
 
       <div>
-        <h2>Creat New Post</h2>
+        <h4>Creat New Post</h4>
         <form id="post-form" onsubmit="createPost();return false;">
           Title: <input type="text" id="postTitle"><br>
           Author: <input type="text" id="postAuthor"><br>
@@ -26,19 +26,19 @@
 
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
-        <form onsubmit="postComment();return false;">
-          Name: <input type="text" id="commenter"><br>
-          Your comment: <input type="text" id="commentText"><br>
-          <input type="submit">
-        </form>
       </div>
+      <br><br>
+      <form onsubmit="postComment();return false;">
+        Name: <input type="text" id="commenter"><br>
+        Your comment: <input type="text" id="commentText"><br>
+        <input type="submit">
+      </form>
     </script>
 
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
       <div id="post"></div>
-      <h4>Add comments:</h4>
-      <div id="comment"> </div>
+      <footer></footer>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
@@ -51,8 +51,8 @@
 
 
     <script id="comment-template" type="text/x-lodash-template">
-      <p><%= comment %></p>
-      <footer>Posted By: <span class="commenter"><%= commenter %></span></footer>
+      <p><%- comment %></p>
+      <footer>Posted By: <span class="commenter"><%- commenter %></span></footer>
     </script>
 
 
