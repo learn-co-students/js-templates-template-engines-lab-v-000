@@ -5,6 +5,41 @@
   </head>
   <body>
     <main>
+
+      <script id="post-template" type="text/x-lodash-template">
+        <header><%- postTitle %></header>
+        <article><%- postBody %></article>
+        <footer><%= postAuthor %></footer>
+      </script>
+
+      <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar">
+        </div>
+        <div id="post">
+        </div>
+      </script>
+
+      <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+          <form onsubmit="postComment();" id="post-comment">
+            <input type="text" id="commentAuthor" value="Author">
+            <input type="text" id="commentBody" value="comment">
+            <input type="submit">
+          </form>
+        </div>
+      </script>
+
+      <script id="comment-template" type="text/x-lodash-template">
+        <footer></footer>
+      </script>
+
+      <form onsubmit="createPost();return false;" id="post-form">
+        <input type="text" name="" id="postTitle" value="placeholder">
+        <textarea name="" id="postBody">test</textarea>
+        <input type="text" name="" id="postAuthor" value="placeholder">
+        <input type="submit">
+      </form>
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
