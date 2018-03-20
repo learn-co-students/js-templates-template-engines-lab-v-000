@@ -8,7 +8,7 @@ describe('index', () => {
   })
 
   describe('functions', () => {
-    before(() => {
+     before(() => {
       window._ = require('lodash')
     })
 
