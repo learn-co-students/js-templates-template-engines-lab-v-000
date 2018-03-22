@@ -5,6 +5,12 @@
   </head>
   <body>
     <main>
+      <h1>Create a post</h1>
+      <form id="post-form" onsubmit="createPost();return false;">
+        title: <input type="text" id="postTitle"><br>
+        author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +21,35 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"><%= post %></div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>Post title: <%= title %></header>
+        <footer>Post author: <%= author %></footer>
+        <%= comments %>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <h4>Create a comment</h4>
+        <form onsubmit="postComment();return false;">
+          body: <input type="text" id="commentBody"><br>
+          author: <input type="text" id="commentAuthor"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <p><%= body %></p>
+      <footer><%= author %></footer>
+    </script>
+
   </body>
 </html>
