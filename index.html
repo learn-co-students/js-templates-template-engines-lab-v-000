@@ -5,15 +5,14 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onsubmit="createPage();return false;">
+      <form id="post-form" onsubmit="createPost();return false;">
         Title: <input type="text" id="post-title"><br>
         Body: <input type="text" id="post-body"><br>
         Author: <input type="text" id="post-author"><br>
         <input type="submit">
       </form>
-
-      <div id="posts"></div>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -26,7 +25,7 @@
 
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
-      <div id="post"><%- post %></div>
+      <div id="post"></div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
@@ -35,6 +34,20 @@
         <div class="body"><%- body %></div>
         <footer class="author"><%- author %></footer>
       </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment();return false;">
+        Commenter Name: <input type="text" id="commenter-name"><br>
+        Comment Text: <input type="text" id="comment-text"><br>
+        <input type="submit">
+      </form>
+      <div id="comments"></div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+    <div id="comment"><%- comment %></div>
+    <footer id="commenter"><%- commenter %></footer>
     </script>
 
   </body>
