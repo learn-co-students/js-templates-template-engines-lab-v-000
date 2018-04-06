@@ -33,7 +33,7 @@ function createPost() {
   var postsDiv = document.getElementById('post');
 
   // Execute template function to get HTML string
-  var templateHTML = templateFn({'postTitle': postTitle, 'postAuthor': postAuthor, 'postBody': postBody});
+  var templateHTML = templateFn({'postTitle': title, 'postAuthor': author, 'postBody': body});
 
   // Add html string to index.html
   postsDiv.innerHTML += templateHTML;
