@@ -5,9 +5,46 @@
   </head>
   <body>
     <main>
+      <div id="page">
+      </div>
+      <form id="post-form" onsubmit="createPost(); return false;">
+        <input type="textarea" id="postContent" placeholder="Add some content...">
+        <p>Author: <input type="text" id="postAuthor"></p>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+      </div>
+      <div id="post">
+        <%= post %>
+      </div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>Untitled</header>
+        <p><%- content %></p>
+        <footer><%- author %></footer>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment(); return false;" id="comments-form" >
+        <input type="textarea" id="commentContent" placeholder="Add some comment...">
+        <p>Author: <input type="text" id="commentAuthor"></p>
+        <input type="submit">
+      </form>
+      <div id="comments">
+        <%= commentBody %>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div id="comments">
+        <p><%- comment %></p>
+        <footer><span>Posted by:</span><%- commenter %></footer>
+      </div>
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
