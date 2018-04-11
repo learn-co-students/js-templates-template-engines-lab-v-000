@@ -5,9 +5,40 @@
   </head>
   <body>
     <main>
+      <form onsubmit='createPost();return false;' id='post-form'>
+        Title: <input type='text' id='postTitle'> <br>
+        Body: <input type='textarea'id='postBody'> <br>
+        Author: <input type='text' id='postAuthor'> <br>
+        <input type='submit'>
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script id='page-template' type='text/x-lodash-template'>
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+    <script id='post-template' type='text/x-lodash-template'>
+    <article>
+      <header> <%- title %> </header>
+       <p> <%- body %> </p>
+      <footer> <%- author %> </footer>
+    </article>
+    </script>
+    <script id='comments-template' type='text/x-lodash-template'>
+      <div id="comments">
+        <form onsubmit="postComment(); return false;" id='comment-form'>
+          Comment: <input type='text' id='comment'>
+          Comment By: <input type='textarea' id='commenter'>
+          <input type='submit'>
+        </form>
+      </div>
+    </script>
+    <script id='comment-template' type='text/x-lodash-template'>
+      <p><%= comment %></p>
+      <footer> <%- commenter %> </footer>
+    </script>
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
@@ -15,5 +46,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
   </body>
 </html>
