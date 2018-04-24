@@ -4,10 +4,61 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
-    <main>
+    <main id="main">
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="title"><br>
+        Body: <input type="text" id="body"><br>
+        Your Name: <input type="text" id="author"><br>
+      <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><%- title %></header>
+        <div><%- body %></div>
+        <footer>
+          <p>
+            <span>Posted By: </span>
+            <% if(author !== '') { %>
+              <%- author %>
+            <% } else { %>
+              Anonymous
+            <% } %>
+          </p>
+        </footer>
+        <div id="comment"></div>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="text" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div>
+        <div><%- comment %></div>
+        <footer>
+          <p>
+            <span>Posted By: </span>
+            <% if(commenter !== '') { %>
+              <%- commenter %>
+            <% } else { %>
+              Anonymous
+            <% } %>
+          </p>
+        </footer>
+      </div>
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
