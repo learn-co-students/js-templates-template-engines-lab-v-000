@@ -5,9 +5,55 @@
   </head>
   <body>
     <main>
+      <!-- <script id="posts-template" type="text/x-lodash-template">
+        <form id="post-form">
+          Title: <input type="text" id="postTitle"><br>
+          Author: <input type="text" id="postAuthor"><br>
+          Body: <input type="text" id="postBody"><br>
+          <input type="submit">
+        </form>
+      </script> -->
+      <form id="post-form">
+        Title: <input type="text" id="postTitle"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        Body: <input type="text" id="postBody"><br>
+        <input type="submit">
+      </form>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script  id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="text" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script type="text/x-lodash-template" id="page-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+    <script type="text/x-lodash-template" id="post-template">
+      <article>
+        <header><h2><%- title %></h2></header>
+        <p><%- body %></p>
+        <footer>Posted by: <%- author %></footer>
+      </article>
+    </script>
+    <!-- above code if a form to create data using lodash;
+    below script displays the data using lodash template -->
+    <script type="text/x-lodash-template" id="comment-template">
+      <div class="comment-body"><%= comment %></div>
+      <div class="commenter">
+        <footer>
+          <span class="posted-by">Posted By: </span>
+          <%= commenter %>
+        </footer>
+      </div>
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
