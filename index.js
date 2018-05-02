@@ -1,28 +1,34 @@
 function createPost() {
-  const pageTemplate = document.getElementById('page-template').innerHTML
-  const postTemplate = document.getElementById('post-template').innerHTML
-  const commentsTemplate = document.getElementById('comments-template').innerHTML
+  let pageTemplate = document.getElementById('page-template').innerHTML
+  let postTemplate = document.getElementById('post-template').innerHTML
+  let commentsTemplate = document.getElementById('comments-template').innerHTML
 
-  const pageTemplateFn = _.template(pageTemplate)
-  const postTemplateFn = _.template(postTemplate)
-  const commentsTemplateFn = _.template(commentsTemplate)
+  let pageTemplateFn = _.template(pageTemplate)
+  let postTemplateFn = _.template(postTemplate)
+  let commentsTemplateFn = _.template(commentsTemplate)
 
-  const tilte = document.getElementById('postTitle').value
-  const body = document.getElementById('postBody').value
-  const author = document.getElementById('postAuthor').value
+  let title = document.getElementById('postTitle').value
+  let body = document.getElementById('postBody').value
+  let author = document.getElementById('postAuthor').value
 
-  const postDiv = document.getElementById('post')
-  const pageTemplateHTML = pageTemplateFn({ 'title': title, 'body': body: body, 'author': author })
+  let postDiv = document.getElementsByTagName('main')[0].innerHTML
+  postDiv.innerHTML += pageTemplateFn()
 
-  postDiv.innerHTML += pageTemplateHTML
+  let postTemplateHTML = postTemplateFn({ 'title': title, 'body': body, 'author': author })
+
+  let commentsSection = commentsTemplateFn()
+
+  let postElement = document.getElementById('post')
+  postElement.innerHTML += postTemplateHTML
+  postElement.getElementsByTagName('footer')[0].innerHTML = commentsSection
 }
 
 function postComment() {
-  const commenter = document.getElementById('commenterName').value
-  const comment = document.getElementById('commentText').value
-  const commentTemplate = document.getElementById('comment-template').innerHTML
-  const commentTemplateFn = _.template(commentTemplate)
-  const commentsDiv = document.getElementById('comments')
-  const commentTemplateHTML = commentTemplateFn({'comment': comment, 'commenter': commenter})
+  let commenter = document.getElementById('commenterName').value
+  let comment = document.getElementById('commentText').value
+  let commentTemplate = document.getElementById('comment-template').innerHTML
+  let commentTemplateFn = _.template(commentTemplate)
+  let commentsDiv = document.getElementById('comments')
+  let commentTemplateHTML = commentTemplateFn({'comment': comment, 'commenter': commenter})
   commentsDiv.innerHTML += commentTemplateHTML
 }
