@@ -11,16 +11,17 @@ function createPost() {
   let body = document.getElementById('postBody').value
   let author = document.getElementById('postAuthor').value
 
-  let postDiv = document.getElementsByTagName('main')[0].innerHTML
-  postDiv.innerHTML += pageTemplateFn()
+  document.getElementsByTagName('main')[0].innerHTML += pageTemplateFn()
 
   let postTemplateHTML = postTemplateFn({ 'title': title, 'body': body, 'author': author })
 
   let commentsSection = commentsTemplateFn()
 
   let postElement = document.getElementById('post')
+
   postElement.innerHTML += postTemplateHTML
-  postElement.getElementsByTagName('footer')[0].innerHTML = commentsSection
+
+  postElement.getElementsByTagName('footer')[0].innerHTML += commentsSection
 }
 
 function postComment() {
