@@ -5,9 +5,65 @@
   </head>
   <body>
     <main>
+      <!--Provide a form with an id of post-form to create a blog post with a title, body, and author.
+        Submitting the form should build the page template with the post inside. Make the form
+        submit using a createPost() function.-->
+      <form id="post-form" onSubmit="createPost();return false">
+        Title: <input type="text" id="postTitle"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        Post: <input type="text" id="postContent"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <!--Create a template with an id of page-template that will represent the page of a blog post,
+      including a sidebar element and a post element that will hold our blog post.-->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+    <!-- Create a post-template that will represent the blog post itself. It should have a header for
+      the post title and a footer for the post author, and be wrapped in an article element.-->
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+          <%- title %>
+        </header>
+        <p>
+          <%- body %>
+        </p>
+        <footer>
+          Posted By: <%= poster %>
+        </footer>
+      </article>
+    </script>
+
+    <!-- Create a comments-template that will be the container for the collection of comments on the
+      blog post, as well as the comment form. -->
+      <!--Provide a form with an id of post-form to create a blog post with a title, body, and author.
+        Submitting the form should build the page template with the post inside. Make the form submit
+        using a createPost() function.-->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="textarea" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+    <!--Create a comment-template that will hold an individual comment. Should have a footer for
+      the commenter name. -->
+    <script id="comment-template"  type="text/x-lodash-template">
+      <div>
+        <p><%= comment %></p>
+        <footer>By: <%= commenter %></footer>
+      </div>
+    </script>
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
