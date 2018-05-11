@@ -5,11 +5,52 @@
   </head>
   <body>
     <main>
+      <h2>New Post</h2>
+      <form id="post-form" onsubmit="createPost()">
+        Title: <input id="postTitle" type="text"><br>
+        Body: <input id="postBody" type="text"><br>
+        Author: <input id="postAuthor" type="text"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+      </div>
+      <div id="post">
+      </div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+          <h2><%- title %></h2>
+          <p><%- body %></p>
+        </header>
+        <footer>Posted By: <%- author %></footer>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment(); return false;">
+          Name: <input id="commenterName" type="text"><br>
+          Comment: <input id="commentText" type="text"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div id="comment-body">
+        <p><%= comment %></p>
+      </div>
+      <footer>
+        <div id="commenter">
+          <p><%= commenter %></p>
+        </div>
+      </footer>
+    </script>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
