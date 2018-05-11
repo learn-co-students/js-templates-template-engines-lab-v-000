@@ -16,7 +16,7 @@
         <div id="comments">
           <form onsubmit="postComment();return false;">
             Name: <input type="text" id="commenterName">
-            Comment: <input type="textarea" id="commentText">
+            Comment: <input type="textarea" id="comment">
             <input type="submit">
           </form>
         </div>
@@ -25,7 +25,7 @@
       <script id="comment-template" type="text/x-lodash-template">
         <div>
           <p> <%= comment %>
-          <footer>Posted by: <%= commenterName %> </footer>
+          <footer>Posted by: <%= commenter %> </footer>
         </div>
       </script>
 

@@ -13,29 +13,23 @@ function createPost() {
 
   var blogSection = postTemplate({ 'title': postTitle, 'body': postBody, 'post': postAuthor });
   var commentsSection = commentsTemplate();
-  var postElement = document.getElementById();
-
+  var postElement = document.getElementById('post');
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 }
 
 
 
 
 function postComment() {
-  var commenter = document.getElementById("commenterName").value;
-  var comment = document.getElementById("commentText").value;
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-  var commentTemplate = 'document.getElementById("comment-template").innerHTML;';
-  var templateFn = _.template(commentTemplate);
+  var commenter = document.getElementById("commenter").value;
+  var comment = document.getElementById("comment").value;
+
+  
   var commentsDiv = document.getElementById("comments");
-  var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
+  var templateHTML = commentTemplate({ 'comment': comment, 'commenter': commenter });
+
   commentsDiv.innerHTML += templateHTML;
 }
-
-
-
-
-//   var postElement = document.getElementById("post");
-
-//   postElement.innerHTML = blogSection;
-//   postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
-// }
