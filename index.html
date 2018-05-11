@@ -11,30 +11,38 @@
           Author: <input type="text" id="postAuthor"> 
           <input type="submit">
       </form>
-
-      <script id="page-template" type="text/x-lodash-template">
-        
-
-      </script>
-
+      
       <script id="comments-template" type="text/x-lodash-template">
-        <form id="comment-form" action="postComment();return false;">
+        <div id="comments">
+          <form onsubmit="postComment();return false;">
             Name: <input type="text" id="commenterName">
             Comment: <input type="textarea" id="commentText">
             <input type="submit">
-      </script>
-
-      <script id="post-template" type="text/x-lodash-template">
-        <article>
-          <header> <%= postHeader %> </header>
-          <footer> <%= postFooter %> </footer>
-        </article>
+          </form>
+        </div>
       </script>
 
       <script id="comment-template" type="text/x-lodash-template">
-        <div id="comments"></div>
-        <footer> <%= commenterName %> </footer>
+        <div>
+          <p> <%= comment %>
+          <footer>Posted by: <%= commenterName %> </footer>
+        </div>
       </script>
+
+      <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar"></div>
+        <div id="post"></div>
+      </script>
+
+
+      <script id="post-template" type="text/x-lodash-template">
+        <article>
+          <header><h2> <%= postTitle %> </h2></header>
+          <p><%= postBody %></p>
+          <footer>Posted by: <%= postAuthor %> </footer>
+        </article>
+      </script>
+
 
     </main>
 
