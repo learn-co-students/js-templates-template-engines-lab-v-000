@@ -24,12 +24,12 @@ function createPost() {
 function postComment() {
   var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-  var commenter = document.getElementById("commenter").value;
-  var comment = document.getElementById("comment").value;
+  var commenterName = document.getElementById("commenterName").value;
+  var commentText = document.getElementById("commentText").value;
 
   
   var commentsDiv = document.getElementById("comments");
-  var templateHTML = commentTemplate({ 'comment': comment, 'commenter': commenter });
 
-  commentsDiv.innerHTML += templateHTML;
+  commentsDiv.innerHTML += commentTemplate({'commenter': commenterName, 'comment': commentText });
+  
 }
