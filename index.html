@@ -6,7 +6,7 @@
   <body>
     <main>
     </main>
-    <script src="node_modules/lodash/lodash.min.js"></script>
+    <script src="lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
@@ -15,5 +15,42 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+    
+      <div id="post">
+      <%= post %>
+      </div>
+
+      <div id="sidebar">
+      <%=comments%>
+      </div>
+
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>Title: <%- title %></header>
+        <footer>Author: <%- author %></footer>
+        <%- body %>
+        <br></br>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments"></div>
+      <form onsubmit="postComment(); return false;">
+      Comment: <input type="text" id="commentBody" value=""><br>
+      Name: <input type="text" id="commenter" value = ""><br>
+      <input type="submit">
+      </form>
+    </script>
+    <script id="comment-template" class="comment" type="text/x-lodash-template">
+      <p><%-commentBody%></p>
+      <footer><%-commenter%></footer>
+    </script>
+    <form class="" id="post-form" onsubmit="createPost(); return false;">
+      Title: <input type="text" id="postTitle" value=""><br>
+      Author: <input type="text" id="postAuthor" value=""><br>
+      Content: <input type="textarea" id="postBody" value=""><br>
+      <input type="submit">
+    </form>
   </body>
 </html>
