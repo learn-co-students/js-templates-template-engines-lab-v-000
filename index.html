@@ -4,8 +4,47 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+    
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="postTitle"/><br/>
+        Author: <input type="text" id="postAuthor"/><br/>
+        Blog Post: <input type="textarea" id="postText"/><br/>
+        <input type="submit"/>
+      </form>
+      <div id="blog-post"></div>
+      <div id="blog-comment"></div>
     </main>
+    
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="post"><%= post %></div>
+      <div id="sidebar"><%= sidebar %></div>
+    </script>
+    
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><%= postTitle %></header>
+        <p><%= postText %></p>
+        <footer>By: <%= postAuthor %></footer>
+      </article>
+    </script>
+    
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment();return false;">
+        Name: <input type="text" id="commentAuthor"/><br/>
+        Comment: <input type="textarea" id="commentText"/><br/>
+        <input type="submit"/>
+      </form>
+      <div id="comments"><%= comment %></div>
+    </script>
+    
+    <script id="comment-template" type="text/x-lodash-template">
+      <article>
+        <p><%= commentText %></p>
+        <footer>By: <%= commentAuthor %></footer>
+      </article>
+    </script>
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
