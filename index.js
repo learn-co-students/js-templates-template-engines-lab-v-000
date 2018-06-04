@@ -1,5 +1,5 @@
 function createPost() {
-  // Page
+  // Page Template
   const pageTemplate = document.getElementById('page-template').innerHTML; 
   const pageTemplateFn = _.template(pageTemplate);
 
@@ -7,7 +7,7 @@ function createPost() {
 
   document.getElementById('main').innerHTML += pageTemplateHTML;
 
-  // Post
+  // Post Template
   const title = document.getElementById("postTitle").value;
   const body = document.getElementById("postBody").value;
   const author = document.getElementById("postAuthor").value;
@@ -20,6 +20,11 @@ function createPost() {
     {'title': title, 'body': body, 'author': author}
   );
 
+  document.getElementById("postTitle").value = '';
+  document.getElementById("postBody").value = '';
+  document.getElementById("postAuthor").value = '';
+
+  // Commments Template
   const commentsTemplate = document.getElementById("comments-template").innerHTML;
   const commentsTemplateFn = _.template(commentsTemplate);
 
@@ -40,7 +45,8 @@ function postComment() {
     {'comment': comment, 'commenter': commenter}
   );
 
-  console.log(commentTemplateHTML);
+  document.getElementById("comment").value = '';
+  document.getElementById("commenter").value = '';
 
   const commentDiv = document.getElementById("comments");
 
