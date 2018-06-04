@@ -5,8 +5,6 @@ function createPost() {
 
   const pageTemplateHTML = pageTemplateFn();
 
-  console.log(pageTemplateHTML);
-
   document.getElementById('main').innerHTML += pageTemplateHTML;
 
   // Post
@@ -32,17 +30,19 @@ function createPost() {
 }
 
 function postComment() {
-  const commenterName = document.getElementById("commenterName");
-  const commenterText = document.getElementById("commenterText");
-
-  const commentDiv = document.getElementById("comments");
+  const comment = document.getElementById("comment").value;
+  const commenter = document.getElementById("commenter").value;
 
   const commentTemplate = document.getElementById("comment-template").innerHTML;
   const commentTemplateFn = _.template(commentTemplate);
 
   const commentTemplateHTML = commentTemplateFn(
-    {'name': commenterName, 'text': commenterText}
+    {'comment': comment, 'commenter': commenter}
   );
+
+  console.log(commentTemplateHTML);
+
+  const commentDiv = document.getElementById("comments");
 
   commentDiv.innerHTML += commentTemplateHTML;
 }
