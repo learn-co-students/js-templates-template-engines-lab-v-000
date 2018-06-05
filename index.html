@@ -5,7 +5,44 @@
   </head>
   <body>
     <main>
+      <form onsubmit="createPost()">
+        Title: <input type="text" id="postTitle"><br>
+        Body:<input type="textarea" id="postBody"><br>
+        Author:<input type="text" id="postAuthor"><br>
+      </form>
     </main>
+    
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+        <div id="post">
+         </div>
+      </div>
+    </script>
+    
+    <script id="post-template" type="text/x-lodash-template">
+      <header>
+        <div class="title"><%= postTitle %></div>
+      </header>
+      <article>
+        <div class="body"><%= postBody %></div>
+      </article>
+      <footer>
+        <div class="author"><%= postAuthor %></div>
+      </footer>
+    </script>
+    
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+      </div>
+      <form onsubmit="postComment()">
+      </form>
+    </script>
+    
+    <script id="comment-template" type="text/x-lodash-template">
+    <footer>
+    </footer>
+    </script>
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
