@@ -7,49 +7,49 @@
     <main>
 
       <form id="post-form" onsubmit="createPost();return false;">
-        Title: <input type="text" id="blogTitle">
-        Body: <input type="textarea" id="blogBody">
-        Author: <input type="text" id="blogAuthor">
+        Title: <input type="text" id="postTitle">
+        Body: <input type="textarea" id="postBody">
+        Author: <input type="text" id="postAuthor">
         <input type="submit">
       </form>
-
+      
+      <script src="node_modules/lodash/lodash.min.js"></script>
+      <script src="index.js"></script>
+      
+      <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar"></div>
+        <div id="post"></div>
+        
+      </script>  
+  
+      <script id="post-template" type="text/x-lodash-template">
+        <article>
+          <header><h2><%- title %></h2><header>
+          <p><%- body %></p>
+          <footer>Posted by: <%= poster %></footer>
+        </article>
+      </script>
+  
+  
+      <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+          <form onsubmit="postComment();return false;">
+            Name: <input type="text" id="commenter"><br>
+            Comment: <input type="text" id="commentText"><br>
+            <input type="submit">
+          </form>
+        </div>
+      </script>
+  
+      <script id="comment-template" type="text/x-lodash-template">
+        <div>
+          <p><%= comment %></p>
+          <footer>Posted by: <%= commenter %></footer>
+        </div>
+      </script>
     </main>
 
-    <script id="page-template" type="text/x-lodash-template">
-      <div id="sidebar"></div>
-      <div id="post"></div>
-      
-    </script>  
 
-    <script id="post-template" type="text/x-lodash-template">
-      <article>
-        <header>Im a header</header>
-        <footer>Im a footer</footer>
-      </article>
-      
-    </script>
-
-
-    <script id="comments-template" type="text/x-lodash-template">
-      <div id="comments">
-        <form onsubmit="postComment()">
-          <input type="textarea">
-          <input type="submit">
-        </form>
-      
-      </div>
-    
-    </script>
-
-    <script id="comment-template" type="text/x-lodash-template">
-      <footer>
-        This is a footer
-      </footer>
-      
-    </script>
-
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
