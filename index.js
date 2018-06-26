@@ -45,5 +45,4 @@ function postComment(){
   var comments = document.getElementById("comments")
 
   comments.innerHTML += commentTemplateHTML;
-
 }
