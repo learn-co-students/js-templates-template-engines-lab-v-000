@@ -5,26 +5,32 @@
   </head>
   <body>
     <main>
+      <!-- when the form fires, it calls the createPost() function and the data is routed there -->
       <form id="post-form" onsubmit="createPost();return false">
         Title: <input type="text" id="postTitle"><br>
         Post: <input type="text" id="postBody"><br>
         Author: <input type="textarea" id="postAuthor"><br>
         <input type="submit">
       </form>
+
+      <!-- the pageTemplate is added to main here after the form is fired
+      it will contain an html string created by the templates with the interpolated data from the form inserted into it -->
     </main>
 
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
 
+  <!-- this is a template for the entire page and is added onto the main element after the form fires and the createPost() function runs and returns -->
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
       <div id="post"></div>
     </script>
 
+  <!-- this template is for the post itself, providing the html structure and accepted variables of header, body and poster. It interpolates those values using the delimiters.  The html string produced by this template is added to the page-template div with the id of post -->
     <script id="post-template" type="text/x-lodash-template">
       <article>
-        <header><%- title %></header>
-        <p><% - body %></p>
+        <header><%- title %></header> //the title data it inserted dynamically
+        <p><% - body %></p> // <% %> are interpolation delimiters
         <footer><%- poster %></footer>
       </article>
     </script>
@@ -33,7 +39,7 @@
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments"></div>
       <form onsubmit="postComment();return false;">
-        commentName: <input type="text" id="commenterName"><br>
+        commenterName: <input type="text" id="commenterName"><br>
         commentText: <input type="textarea" id="commentText"><br>
         <input type="submit">
       </form>
