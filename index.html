@@ -5,9 +5,54 @@
   </head>
   <body>
     <main>
+      <!-- when the form fires, it calls the createPost() function and the data is routed there -->
+      <form id="post-form" onsubmit="createPost();return false">
+        Title: <input type="text" id="postTitle"><br>
+        Post: <input type="text" id="postBody"><br>
+        Author: <input type="textarea" id="postAuthor"><br>
+        <input type="submit">
+      </form>
+
+      <!-- the pageTemplate is added to main here after the form is fired
+      it will contain an html string created by the templates with the interpolated data from the form inserted into it -->
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
+  <!-- this is a template for the entire page and is added onto the main element after the form fires and the createPost() function runs and returns -->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+  <!-- this template is for the post itself, providing the html structure and accepted variables of header, body and poster. It interpolates those values using the delimiters.  The html string produced by this template is added to the page-template div with the id of post -->
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><%- title %></header>
+        <p><%- body %></p>
+        <footer><%- poster %></footer>
+      </article>
+    </script>
+
+<!-- container for the collection of comments on the blog post, as well as the comment form.-->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments"></div>
+      <form onsubmit="postComment();return false;">
+        commenterName: <input type="text" id="commenterName"><br>
+        commentText: <input type="textarea" id="commentText"><br>
+        <input type="submit">
+      </form>
+    </script>
+
+<!-- comment-template that will hold an individual comment. Should have a footer for the commenter name. -->
+    <script id="comment-template" type="text/x-lodash-template">
+        <div><%- comment %></div>
+        <footer><%- commenterName %></footer>
+    </script>
+
+
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
