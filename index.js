@@ -66,4 +66,7 @@ function postComment() {
    //execute template function with JSON object for the interpolated values
    var commentSection = postTemplate({ 'comment': comment, 'commenterName': commenterName});
 
+   //Return the template html back to the index file with the interpolated values inside
+   commentElement.innerHTML = commentSection;
+
 };
