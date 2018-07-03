@@ -54,6 +54,7 @@ function postComment() {
   var commentText = document.getElementById("commentText").value;
 
   //Create template function that will be called later
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
 
   //this gets the main DOM element and adds to it's innerHTML the commentTemplate
