@@ -29,8 +29,8 @@
   <!-- this template is for the post itself, providing the html structure and accepted variables of header, body and poster. It interpolates those values using the delimiters.  The html string produced by this template is added to the page-template div with the id of post -->
     <script id="post-template" type="text/x-lodash-template">
       <article>
-        <header><%- title %></header> //the title data it inserted dynamically
-        <p><% - body %></p> // <% %> are interpolation delimiters
+        <header><%- title %></header>
+        <p><%- body %></p>
         <footer><%- poster %></footer>
       </article>
     </script>
@@ -47,8 +47,8 @@
 
 <!-- comment-template that will hold an individual comment. Should have a footer for the commenter name. -->
     <script id="comment-template" type="text/x-lodash-template">
-        <div></div>
-        <footer></footer>
+        <div id="comment"><%- comment %></div>
+        <footer id="commenter-name"><%- commenterName %></footer>
     </script>
 
 

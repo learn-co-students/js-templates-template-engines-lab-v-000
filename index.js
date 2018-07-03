@@ -15,13 +15,14 @@ function createPost() {
   var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
   var postTemplate = _.template(document.getElementById("post-template").innerHTML);
   //this will create the form needed to comment on a post
-  var commentTemplate = _.template(document.getElementById("comments-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
 
   //this gets the main DOM element and adds to it's innerHTML the page template html that is returned from the function
   //so it adds a sidebar element and a div with an id of "post"
   //the div with id of post needs to be created here/now because the next step will be to grab the element and then set it equal to a variable
    document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
+   document.getElementsByTagName("main")[0].innerHTML += commentsTemplate();
 
 
   //Get the place where you are going to spit the html back out
