@@ -51,7 +51,7 @@ function postComment() {
 
   // Get the data submitted by the form
   var commenterName = document.getElementById("commenterName").value;
-  var commentText = document.getElementById("commentText").value;
+  var comment = document.getElementById("commentText").value;
 
   //Create template function that will be called later
   var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
@@ -61,6 +61,9 @@ function postComment() {
    document.getElementsByTagName("main")[0].innerHTML += commentTemplate();
 
    //Get the place where you are going to spit the html back out
-   var commentElement = document.getElementById("post");
+   var commentElement = document.getElementById("comment-template");
+
+   //execute template function with JSON object for the interpolated values
+   var commentSection = postTemplate({ 'comment': comment, 'commenterName': commenterName});
 
 };
