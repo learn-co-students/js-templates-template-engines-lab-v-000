@@ -35,8 +35,6 @@ function createPost() {
   //Executing the function will return a string
   var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
 
-
-
   //Return the template html back to the index file with the interpolated values inside
     //This takes the return value of calling the function created by _.template
     //(which is an html string) and puts it into the postElement
@@ -56,17 +54,16 @@ function postComment() {
   //Create template function that will be called later
   var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-
-  //this gets the main DOM element and adds to it's innerHTML the commentTemplate
-   document.getElementsByTagName("main")[0].innerHTML += commentTemplate();
-
    //Get the place where you are going to spit the html back out
    var commentElement = document.getElementById("comment-template");
 
    //execute template function with JSON object for the interpolated values
-   var commentSection = postTemplate({ 'comment': comment, 'commenterName': commenterName});
+   var commentSection = commentTemplate({ 'comment': comment, 'commenterName': commenterName});
+   
+   //this gets the main DOM element and adds to it's innerHTML the commentTemplate
+   document.getElementsByTagName("main")[0].innerHTML += commentSection;
 
    //Return the template html back to the index file with the interpolated values inside
-   commentElement.innerHTML = commentSection;
+   //commentElement.innerHTML += commentSection;
 
 };
