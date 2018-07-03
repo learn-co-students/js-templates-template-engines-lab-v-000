@@ -1,25 +1,25 @@
 function createPost() {
 
   // Get the data submitted by the form
-  var title = document.getElementById("postTitle").value;
-  var body = document.getElementById("postBody").value;
-  var author = document.getElementById("postAuthor").value;
+  var postTitle = document.getElementById("postTitle").value;
+  var post = document.getElementById("postBody").value;
+  var postAuthor = document.getElementById("postAuthor").value;
 
   //Create template
-  var pageTemplate = document.getElementById("page-template").innerHTML;
-  var postTemplate = document.getElementById("post-template").innerHTML
-  var templateFn = _.template(postTemplate);
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
 
   //Get the place where you are going to spit the html back out
-  var postsDiv = document.getElementById("posts");
+    //this is inside the pageTemplate, the div with the id of post
+  var postElement = document.getElementById("post");
 
   //execute template function with JSON object for the interpolated values
-  var templateHTML = templateFn({ 'postTitle': title, 'postBody': body, 'postAuthor': author });
+   var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+
 
 
   //Return the template back to the html
-
-  postsDiv.innerHTML += templateHTML;
+    postElement.innerHTML = blogSection;
 
 
 }
