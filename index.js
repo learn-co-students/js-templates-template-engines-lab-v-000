@@ -1,14 +1,20 @@
 function createPost(){
+
   var postTitle = document.getElementById("postTitle").value
   var postContent = document.getElementById("postText").value
   var postAuthor = document.getElementById("postAuthor").value
 
-  var postTemplate = document.getElementById("post-template").innerHTML
+  var postTemplateFn = _.template(document.getElementById("post-template").innerHTML)
   var pageTemplateFn = _.template(document.getElementById("page-template").innerHTML)
+  var commentTemplateFn = _.template(document.getElementById("comments-template").innerHTML)
 
-  var templateFn = _.template(postTemplate)
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplateFn()
 
-  var templateHTML = templateFn({"title" : postTitle, "content" : postText, "author" : postAuthor})
+  var templateHTML = postTemplateFn({"title" : postTitle, "content" : postContent, "author" : postAuthor})
+  var postElement = document.getElementById("post")
+  postElement.innerHTML = templateHTML
+
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentTemplateFn()
 }
 
 function postComment(){
