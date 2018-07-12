@@ -1,0 +1,58 @@
+function createPost(event) {
+  event.preventDefault; // prevent form from executing a new HTTP request
+
+  // get form data from user input
+  let title = document.getElementById('postTitle').value;
+  let author = document.getElementById('postAuthor').value;
+  let post = document.getElementById('postContent').value;
+
+  // create template functions
+  let pageTemplate = _.template(
+    document.getElementById('page-template').innerHTML
+  );
+  let postTemplate = _.template(
+    document.getElementById('post-template').innerHTML
+  );
+  let commentsTemplate = _.template(
+    document.getElementById('comments-template').innerHTML
+  );
+  // get main div
+  let main = document.getElementsByTagName('main')[0]
+  // create HTML
+  let pageHTML = pageTemplate()
+  let postHTML = postTemplate({ 'title': title, 'author': author, 'post': post });
+  let commentSection = commentsTemplate();
+
+  // append page template to main div
+  main.innerHTML += pageHTML;
+  // grab post div
+  let postDiv = document.getElementById('post');
+
+  // add post to post div
+  postDiv.innerHTML = postHTML;
+  // add comment section to post
+  postDiv.getElementsByTagName('footer')[0].innerHTML += commentSection;
+}
+
+function postComment(event) {
+  event.preventDefault; // prevent form from executing a new HTTP request
+
+  // get form data from user input
+  let commentBody = document.getElementById('commentBody');
+  let commentAuthor = document.getElementById('commenter');
+
+  // create template function
+  let commentTemplate = _.template(
+    document.getElementById('comment-template').value
+  );
+
+  // get comment div
+  let commentSection = document.getElementById('comments');
+
+  //createHTML
+  let commentHTML = commentTemplate({ 'comment': commentBody, 'commenter': commentAuthor});
+
+  // append to comment section
+  commentSection.innerHTML += commentHTML;
+
+}
