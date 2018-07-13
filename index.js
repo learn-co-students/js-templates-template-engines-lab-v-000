@@ -35,15 +35,15 @@ function createPost(event) {
 }
 
 function postComment(event) {
-  event.preventDefault; // prevent form from executing a new HTTP request
+  event.preventDefault(); // prevent form from executing a new HTTP request
 
   // get form data from user input
-  let commentBody = document.getElementById('commentBody');
-  let commentAuthor = document.getElementById('commenter');
+  let commentBody = document.getElementById('commentBody').value;
+  let commentAuthor = document.getElementById('commenter').value;
 
   // create template function
   let commentTemplate = _.template(
-    document.getElementById('comment-template').value
+    document.getElementById('comment-template').innerHTML
   );
 
   // get comment div
