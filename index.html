@@ -5,6 +5,13 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="postTitle"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        Post: <input type="text" id="postBody">
+        <input type="submit">
+      </form>
+
       <script src="node_modules/lodash/lodash.min.js"></script>
       <script src="index.js"></script>
 
@@ -13,12 +20,7 @@
         <div id="post"></div>
       </script>
 
-      <form id="post-form" onsubmit="createPost();return false;">
-        Title: <input type="text" id="postTitle"><br>
-        Author: <input type="text" id="postAuthor"><br>
-        Post: <input type="text" id="postBody">
-        <input type="submit">
-      </form>
+
 
       <script id="post-template" type="text/x-lodash-template">
         <article>
@@ -28,19 +30,19 @@
         </article>
       </script>
 
-      <script id="comments-template" type="text/x-lodash-template">
-        <div id="comments">
-          <form onsubmit="postComment();return false;">
-            Name: <input type="text" id="commenterName"><br>
-            Comments: <input type="text" id="commentBody">
-            <input type="submit">
-          </form>
-        </div>
+      <script id="comment-template" type="text/x-lodash-template">
+        <p><%- comment %></p>
+        <footer>Posted by: <%= commenter %></footer>
       </script>
 
-      <script id="comment-template" type="text/x-lodash-template">
-          <div class="comment-body"><%- comment %></div>
-          <footer><%- commenter %></footer>
+      <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+        <form onsubmit="postComment(); return false;">
+            Add comment: <input type="text" id="commentText"><br>
+            Your name: <input type="text" id="commenterName"><br>
+            <input type="submit">
+        </form>
+      </div>
       </script>
     </main>
 
