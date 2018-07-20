@@ -5,9 +5,17 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost(); return false;">
+        Title: <input type="text" id="postTitle"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        Content: <textarea type="text_area" id="postContent"></textarea><br>
+        <input type="submit">        
+      </form>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
@@ -17,3 +25,32 @@
     <script src="test/index-test.js"></script>
   </body>
 </html>
+
+
+<script id="page-template" type="text/x-lodash-template">
+  <div id="post"></div>
+  <div id="sidebar"></div>
+</script>
+
+<script id="comments-template" type="text/x-lodash-template">
+  <div id="comments">
+   <form onsubmit="postComment();return false;">
+      name: <input type='text' id='commenter'></br>
+      <textarea type="text_area" id="commentText"></textarea><br>
+      <input type='submit' value='create comment'></br>
+    </form>
+  </div>
+</script>
+
+<script id="comment-template" type="text/x-lodash-template">
+  <div id="comment"><%- comment %></div>
+  <footer></footer>
+</script>
+
+<script id="post-template" type="text/x-lodash-template">
+  <article>
+    <header><h2><%- title %></h2><header>
+    <p><%- content %></p>
+    <footer>Posted by: <%- author %></footer>
+  </article>
+</script>
