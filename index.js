@@ -10,15 +10,15 @@ function createPost() {
   let post = document.getElementById("postBody").value;
 
   //find the first 'main' tag and add it's innerHTML values to the pageTemplate function variable
-  document.getElementByTagName("main")[0].innerHTML += pageTemplate();
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-  let blogSection = postTempalte({'title': postTitle, 'body': post, 'poster': postAuthor});
+  let blogSection = postTemplate({'title': postTitle, 'body': post, 'poster': postAuthor});
   let commentsSection = commentsTemplate();
   let postElement = document.getElementById("post");
 
 //
   postElement.innerHTML = blogSection;
-  postElement.getElementByTagName("footer")[0].innerHTML = commentsSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 
 }
 
