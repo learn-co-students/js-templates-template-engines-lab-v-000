@@ -3,5 +3,9 @@ function createPost(){
   var postBody  = document.getElementById("postBody").value;
   var postAuthor = document.getElementById("postAuthor").value;
 
-  var postTemplate = document.getElementById("posts")
+  debugger
+  // var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+
+
+
 }
