@@ -5,13 +5,24 @@ function createPost(){
 
   const postTemplate = _.template(document.getElementById("post-template").innerHTML);
   const pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  const commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
+  // const commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
   const postHTML = postTemplate({'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor})
 
 
   document.getElementById('posts').innerHTML += pageTemplate()
 
-  document.getElementById('post').innerHTML += postHTML
+  document.getElementById('post').innerHTML += postHTML + commentsTemplate()
 
 
+
+
+
+}
+
+function postComment(){
+  const commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+
+  const commentBody = document.getElementById("CommentBody")
 }
