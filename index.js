@@ -1,10 +1,13 @@
 function createPost(){
-  var postTitle  = document.getElementById("postTitle").value;
-  var postBody  = document.getElementById("postBody").value;
-  var postAuthor = document.getElementById("postAuthor").value;
+  const postTitle  = document.getElementById("postTitle").value;
+  const postBody  = document.getElementById("postBody").value;
+  const postAuthor = document.getElementById("postAuthor").value;
 
-  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  const postTemplate = _.template(document.getElementById("post-template").innerHTML);
 
-  debugger
+
+  const postHTML = postTemplate({'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor})
+
+  document.getElementById('posts').innerHTML += postHTML
 
 }
