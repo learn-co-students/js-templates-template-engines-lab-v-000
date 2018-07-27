@@ -4,12 +4,14 @@ function createPost(){
   const postAuthor = document.getElementById("postAuthor").value;
 
   const postTemplate = _.template(document.getElementById("post-template").innerHTML);
-
+  const pageTemplate = _.template(document.getElementById("page-template").innerHTML);
 
   const postHTML = postTemplate({'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor})
 
-  // document.getElementById('posts').innerHTML += postHTML
 
+  document.getElementById('posts').innerHTML += pageTemplate()
+
+  document.getElementById('post').innerHTML += postHTML
 
 
 }
