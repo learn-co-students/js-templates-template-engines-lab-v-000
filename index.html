@@ -42,7 +42,7 @@
     </script>
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
-        <form id="comment-form" onsubmit="postComment();return false; ">
+        <form onsubmit="postComment();return false;">
           Comment:  <input type="text" id="commentBody"><br>
           Name: <input type="text" id="commentAuthor"><br>
           <input type="submit">
@@ -51,7 +51,7 @@
     </script>
     <script id="comment-template" type="text/x-lodash-template">
       <p><%= commentBody %></p>
-      <footer><%= commenterName %></footer>
+      <footer><%= commentAuthor %></footer>
     </script>
   </body>
 </html>

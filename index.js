@@ -13,16 +13,22 @@ function createPost(){
 
   document.getElementById('posts').innerHTML += pageTemplate()
 
+  debugger
   document.getElementById('post').innerHTML += postHTML + commentsTemplate()
-
-
 
 
 
 }
 
 function postComment(){
+
   const commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-  const commentBody = document.getElementById("CommentBody")
+  const commentBody = document.getElementById("commentBody").value;
+  const commentAuthor = document.getElementById("commentAuthor").value;
+
+  const commentHTML = commentTemplate({'commentBody': commentBody, 'commentAuthor': commentAuthor})
+
+  document.getElementById('comments').innerHTML += commentHTML;
+
 }
