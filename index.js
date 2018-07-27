@@ -8,6 +8,8 @@ function createPost(){
 
   const postHTML = postTemplate({'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor})
 
-  document.getElementById('posts').innerHTML += postHTML
+  // document.getElementById('posts').innerHTML += postHTML
+
+
 
 }
