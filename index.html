@@ -4,8 +4,46 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Post: <input type="textarea" id="postText"><br>
+        Author: <input type="text" id="authorName"><br>
+        <input type="submit">
+      </form>
     </main>
+
+<!-- formats the page -->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+<!-- formats the post utilizes data from post-form -->
+    <script id="post-template" type="text/x-lodash-template">
+        <article>
+          <header></header>
+          <body><%- postBody %></body>
+          <footer>By: <%- authorName %></footer>
+        </article>
+    </script>
+
+<!-- takes in new comment data -->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Commenter text: <input type="textarea" id="commentText"><br>
+          Commenter Name: <input type="text" id="authorName"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+<!-- formats exists comments -->
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer></footer>
+    </script>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -15,5 +53,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
   </body>
 </html>
