@@ -16,9 +16,9 @@ function createPost() {
   var pageDiv  = document.getElementById("post")
 
 
-  pageDiv.innerHTML += postTemplate({ 'title': title, 'post': post, 'author': author})
+  pageDiv.innerHTML = postTemplate({ 'title': title, 'post': post, 'author': author})
 
-  pageDiv.getElementsByTagName('footer')[0].innerHTML += commentsTemplate()
+  pageDiv.getElementsByTagName('footer')[0].innerHTML = commentsTemplate()
 }
 
 
