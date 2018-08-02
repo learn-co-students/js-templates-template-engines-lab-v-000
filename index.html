@@ -22,9 +22,9 @@
 
       <script id="page-template" type="text/x-lodash-template">
         <div id="sidebar">
-        <div id="post">
+          <div id="post">
             <%- comment %>
-        </div>
+          </div>
         </div>
       </script>
 
@@ -32,9 +32,9 @@
     <div id="posts">
     <script id="post-template" type="text/x-lodash-template">
     <div id='post'>
-      <header></header>
-      <article></article>
-      <footer></footer>
+      <header><%- postTitle %></header>
+      <article><%- postBody %></article>
+      <footer><%- postAuthor %></footer>
       </div>
     </script>
     </div>
