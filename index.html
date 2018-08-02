@@ -8,6 +8,32 @@
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header></header>
+        <footer></footer>
+      </article>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <form id="comment-form" onSubmit="postComment()">
+        Add comment: <input type="text" id="commentText"><br>
+        Your name: <input type="text" id="commenterName"><br>
+        <input type="submit">
+      </form>
+      <div id="comments">
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer></footer>
+    </script>
+    <form id="post-form" onSubmit="createPost();return false;">
+      Title: <input type="text" id="title">
+      Content: <input type="text" id="content">
+      Author: <input type="text" id="author">
+      <input type="submit">
+    </form>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
