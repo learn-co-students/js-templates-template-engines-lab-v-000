@@ -1,18 +1,23 @@
+
 function createPost() {
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
   var postTitle = document.getElementById("postTitle").value;
-  var postBody = document.getElementById("postBody").value;
   var postAuthor = document.getElementById("postAuthor").value;
-  var postTemplate = document.getElementById("post-template").innerHTML;
-  var templateFn = _.template(postTemplate);
-  var postsDiv = document.getElementById("posts");
-  var templateHTML = templateFn({ 'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor });
-  postsDiv.innerHTML += templateHTML;
-  //var commenter = document.getElementById("commenterName").value;
-  //var comment = document.getElementById("commentText").value;
+  var post = document.getElementById("postBody").value;
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
+  var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+  var commentsSection = commentsTemplate();
+  var postElement = document.getElementById("post");
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
+}
 
-  //var pageTemplate = document.getElementById("page-template").innerHTML;
-  //var templateFn = _.template(pageTemplate);
-
-  //var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
-  //commentsDiv.innerHTML += templateHTML;
+function postComment() {
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+  var commentText = document.getElementById("commentText").value;
+  var commenterName = document.getElementById("commenter").value;
+  var commentsSection = document.getElementById("comments");
+  commentsSection.innerHTML += commentTemplate({ 'commenter': commenterName, 'comment': commentText });
 }
