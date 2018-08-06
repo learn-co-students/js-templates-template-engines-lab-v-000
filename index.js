@@ -9,15 +9,16 @@ function createPost() {
   var postAuthor = document.getElementById("postAuthor").value;
   var post = document.getElementById("postBody").value;
 
-  // append to main
+  // append page template to main
   document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-
+  // fill in post template and create HTML for each post
   var postSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
-  var commentsSection = commentsTemplate();
   var postElement = document.getElementById("post");
-
   postElement.innerHTML = postSection;
+
+  // set up comments template and HTML for comments section
+  var commentsSection = commentsTemplate();
   postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 }
 
