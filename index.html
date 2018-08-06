@@ -5,55 +5,42 @@
   </head>
   <body>
     <main>
-      <!-- post form -->
       <form id="post-form" onsubmit="createPost();return false;">
         Title: <input type="text" id="postTitle"><br>
-        Make a post: <input type="text" id="postBody"><br>
-        Your name: <input type="text" id="postAuthor"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        Post: <input type="text" id="postBody"><br>
         <input type="submit">
       </form>
     </main>
-
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
-
-
-    <!-- comments template -->
-    <script id='comments-template' type="text/x-lodash-template">
+    <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
-        <form onsubmit="postComment(); return false">
-          Add comment: <input type="text" id="commentText"><br>
-          Your name: <input type="text" id="commenter"><br>
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenter"><br>
+          Comment: <input type="text" id="commentText"><br>
           <input type="submit">
         </form>
       </div>
     </script>
-
-        <!-- comment template -->
-    <script id='comment-template' type="text/x-lodash-template">>
+    <script id="comment-template" type="text/x-lodash-template">
       <div>
-        <p class="comment-body"><%- commentText %></p>
-        <footer class='authorName'>Posted By: <%- commenter %>
-        </footer>
+        <p><%= comment %></p>
+        <footer>Posted by: <%= commenter %></footer>
       </div>
     </script>
-
-    <!-- page-template -->
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
       <div id="post"></div>
     </script>
-
-    <!-- post-template -->
-    <script id='post-template' type="text/x-lodash-template">
+    <script id="post-template" type="text/x-lodash-template">
       <article>
-        <header><%= title %>
-        </header>
-        <p><%= post %></p>
-        <footer><%= author %></footer>
+        <header><h2><%- title %></h2><header>
+        <p><%- body %></p>
+        <footer>Posted by: <%= poster %></footer>
       </article>
     </script>
-
+    </main>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
