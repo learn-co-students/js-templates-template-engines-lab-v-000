@@ -5,6 +5,28 @@
   </head>
   <body>
     <main>
+      <!-- form goes here -->
+      <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar"></div>
+        <div id="post"></div>
+      </script>
+      <script id="post-template" type="text/x-lodash-template">
+        <article>
+          <header></header>
+          <footer></footer>
+        </article>
+      </script>
+      <script id="comments-template" type="text/x-lodash-template">
+        <form onsubmit="createComment()" id="comment-form">
+        Comment: <input type="textarea" id="commentBody" /><br />
+        Name:<input type="text" id="commentAuthor" /><br />
+        <input type="submit" />
+      </script>
+      <script id="comment-template" type="text/x-lodash-template">
+        <div id="comment"></div>
+        <footer></footer>
+      </script>
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
