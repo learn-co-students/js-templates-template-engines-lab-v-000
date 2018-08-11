@@ -6,6 +6,12 @@
   <body>
     <main>
 
+      <form id="post-form" onsubmit="createPost();return false;"?
+        Author: <input type="text" id="author"><br>
+        Title: <input type="text" id="title"><br>
+        Body: <input type="text" id="body"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -44,12 +50,6 @@
             </div>
           </script>
 
-          <form id="post-form" onsubmit="createPost();return false;"?
-            Author: <input type="text" id="author"><br>
-            Title: <input type="text" id="title"><br>
-            Body: <input type="text" id="body"><br>
-            <input type="submit">
-          </form>
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
