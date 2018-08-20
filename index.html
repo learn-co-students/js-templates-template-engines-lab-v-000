@@ -5,12 +5,15 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onsubmit="createPost();return false;">
+
+      <!--this is the visual form for the site-->
+      <form id="post-form" onsubmit="createPost(); return false;">
               Title: <input type="text" id="postTitle"><br>
               Author: <input type="text" id="postAuthor"><br>
               Post: <input type="text" id="postBody"><br>
               <input type="submit">
       </form>
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -21,12 +24,17 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
 <!--start coding template here-->
+
+    <!--this is our lodash template that will contain 2 elements-->
+    <!--these are script templates that can be used over and over-->
     <script id ="page-template" type="text/x-lodash-template">
             <div id="sidebar"> </div>
             <div id="post"> </div>
     </script>
 
+    <!--incorporate <%-%> which allows us to change our comment field to not allow people to execute HTML tags within the form.-->
     <script id ="post-template" type="text/x-lodash-template">
         <article>
             <header>
@@ -38,6 +46,18 @@
         </article>
     </script>
 
+    <!--the createPost() fn leads to the index.js page-->
+    <!--this will be a container for the collection of comments-->
+
+        <script id ="comments-template" type="text/x-lodash-template">
+                <div id="comments">
+                      <form onsubmit="postComment();return false">
+                          Name: <input type="text" id="commenter"><br>
+                          Comment: <input type="textarea" id="commentText"><br>
+                          <input type="submit">
+                      </form>
+                </div>
+        </script>
 
     <script id ="comment-template" type="text/x-lodash-template">
             <p><%= comment %></p>
@@ -45,17 +65,7 @@
                 Posted by: <%= commenter %>
             </footer>
     </script>
-<!--the createPost() leads to the index.js page-->
 
-    <script id ="comments-template" type="text/x-lodash-template">
-            <div id="comments">
-                  <form onsubmit="postComment();return false">
-                      Name: <input type="text" id="commenter"><br>
-                      Comment: <input type="textarea" id="commentText"><br>
-                      <input type="submit">
-                  </form>
-            </div>
-    </script>
 
   </body>
 </html>
