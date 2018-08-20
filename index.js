@@ -7,14 +7,22 @@ function createPost(){
   //Body: <input type="textarea" id="postBody"><br>
   //Author: <input type="text" id="postAuthor"><br>
 
-  var postTemplate = document.getElementById("post-template").innerHTML;
-  var templateFn = _.template(postTemplate);
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML)
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  //var templateFn = _.template(postTemplate);
+
+  var main = document.getElementById("main");
+  main.innerHTML += pageTemplate();
 
   var postDiv = document.getElementById("post");
 
-  var templateHTML = templateFn({ 'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor});
+  var templateHTML = postTemplate({ 'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor});
 
   postDiv.innerHTML += templateHTML;
+
+  var comments = document.getElementById("comment-form");
+  comments.innerHTML += commentsTemplate();
 
 }
 
@@ -25,6 +33,8 @@ function postComment() {
   //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
   //create template string
   //var commentTemplate = '<div class="comment"><p><%= comment %></p><p>Posted By: <span class="commenter"><%= commenter %></span></p></div>';
+
+
   var commentTemplate = document.getElementById("comment-template").innerHTML;
   //create template function
   var templateFn = _.template(commentTemplate);
