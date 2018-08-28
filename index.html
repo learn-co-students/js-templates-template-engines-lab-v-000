@@ -5,6 +5,16 @@
   </head>
   <body>
     <main>
+
+           <!-- BLOG FORM -->
+
+    <form onSubmit="createPost();return false;" id="post-form">
+        Post Title: <input type="text" id="postTitle"><br> 
+        Post Author: <input type="text" id="postAuthor"><br>
+        Post Body: <input type="textarea" id="postBody"><br>
+          <input type="submit">
+      </form>
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +25,59 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+   
+    <!-- Whole Page-->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+
+    <!-- Template for Blog Post-->   
+    <script id="post-template" type="text/x-lodash-template">
+    <!-- represents the blog post itself-->
+      <article>
+
+        <header>
+          <%= <!-- post title--> %>
+        </header>
+
+        <%= <!-- post body--> %>
+
+        <footer>Posted By: <%= <!-- post author--> %></footer>
+
+      </article>
+    </script>
+    
+  
+
+    <!-- Comments Template for comments and Comment Form -->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <!-- COMMENT FORM -->
+        <form onsubmit="postComment();return false;">
+            Commenter Name: <input type="text" id="commenterName"><br> 
+            Comment Body: <input type="text" id="commentBody"><br>
+            <input type="submit">
+          </form>
+      </div>
+    </script>>
+    
+      
+    <!-- Comment Template for an Individual Comment -->
+    <script id="comment-template" type="text/x-lodash-template">
+      <p><%= comment %></p>
+       
+      <footer>Posted By: <%= commenter %> </footer>
+    </script>
+
+       
+
+     
+  
+   
+
+
   </body>
 </html>
