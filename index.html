@@ -29,7 +29,7 @@
     
       <script id="comments-template" type="text/x-lodash-template">
         <div id="comments">
-           <form id="newComment" onSubmit="postComment()">
+           <form id="newComment" onSubmit="postComment();return false;">
               Add comment: <input type="text" id="commentText"><br>
               Your name: <input type="text" id="commenterName"><br>
               <input type="submit">
@@ -48,7 +48,7 @@
     <script id="post-template" type="text/x-lodash-template">
       <div class="post">
         <article>
-          <header><h2> class="post-title"><%- postTitle %></h2></header>
+          <header class="post-title"><h2><%= postTitle %></h2></header>
           <div class="post-body"><%- post %></div>
           <footer class="poster"><%- poster %></footer>
         </article>
