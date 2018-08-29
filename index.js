@@ -12,8 +12,8 @@ function createPost() {
   
   
   
-  var pageTemplate = document.getElementById("page-template").innerHTML
-  var pageTemplateFn = _.template(pageTemplate);
+  // var pageTemplate = document.getElementById("page-template").innerHTML
+  // var pageTemplateFn = _.template(pageTemplate);
 
 }
 

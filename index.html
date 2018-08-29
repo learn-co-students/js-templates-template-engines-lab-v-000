@@ -38,8 +38,10 @@
      </script>
      
      <script id="comment-template" type="text/x-lodash-template">
-        <div class="comment-body"><%= comment %></div>
-       <footer class="commenter"><%- commenter %></footer>
+      <div class="comment">
+        <p class="comment-body"><%- comment %></p>
+        <footer class="commenter"><%- commenter %></footer>
+      </div>
      </script>
      
      
@@ -59,10 +61,12 @@
     
   
     <script id="page-template" type="text/x-lodash-template">
-       <div class="page"></div>
       <div id="sidebar"></div>
       <div id="post"><%- post %></div>
     </script>
+    
+    
+    
     
     
     
