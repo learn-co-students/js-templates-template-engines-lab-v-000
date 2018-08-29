@@ -16,3 +16,18 @@ function createPost() {
   var pageTemplateFn = _.template(pageTemplate);
 
 }
+
+
+function postComment() {
+  var commentText = document.getElementById("commentText");
+  var commenter = document.getElementById("commenterName");
+  
+  var commentTemplate = document.getElementById("comment-template").innerHTML;
+  var commentTemplateFn = _.template(commentTemplate);
+  
+  var commentsDiv = document.getElementById("comments");
+  var commentTemplateHTML = commentTemplateFn({'comment': comment, 'commenter': commenter });
+  commentsDiv.innerHTML += commentTemplateHTML;
+  
+}
+

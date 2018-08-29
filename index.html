@@ -28,13 +28,18 @@
     
     
       <script id="comments-template" type="text/x-lodash-template">
-        <div id='comments'
+        <div id="comments">
            <form id="newComment" onSubmit="postComment()">
               Add comment: <input type="text" id="commentText"><br>
               Your name: <input type="text" id="commenterName"><br>
               <input type="submit">
           </form>
         </div
+     </script>
+     
+     <script id="comment-template" type="text/x-lodash-template">
+        <div class="comment-body"><%= comment %></div>
+       <footer class="commenter"><%- commenter %></footer>
      </script>
      
      
@@ -55,8 +60,8 @@
   
     <script id="page-template" type="text/x-lodash-template">
        <div class="page"></div>
-      <div class="sidebar"></div>
-      <div class="post"><%- post %></div>
+      <div id="sidebar"></div>
+      <div id="post"><%- post %></div>
     </script>
     
     
