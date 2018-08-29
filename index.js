@@ -10,7 +10,7 @@ function createPost() {
  
   var postsDiv = document.getElementById("posts");
  
-  var templateHTML = templateFn({ 'post': post, 'poster': poster });
+  var templateHTML = templateFn({'postTitle': postTitle, 'post': post, 'poster': poster });
  
   postsDiv.innerHTML += templateHTML;
 }
