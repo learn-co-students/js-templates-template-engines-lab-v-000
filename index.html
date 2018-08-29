@@ -4,18 +4,17 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+    
     <main>
-  
         <article>
             <form id="post-form" onsubmit="createPost();return false;">
               Title: <input type="text" id="postTitle"><br>
-              Name: <input type="text" id="posterName"><br>
               Post: <input type="textarea" id="postText"><br>
+              Name: <input type="text" id="posterName"><br>
               <input type="submit">
             </form>
             <div id="posts"></div>
       </article>
-        
     </main>
     
     
@@ -23,20 +22,25 @@
     <script src="index.js"></script>
     
     
+    <script> id="page-template" type="text/x-lodash-template"
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
     
     
     <script id="post-template" type="text/x-lodash-template">
       <div class="post">
-      <div class="post-title"><%- postTitle %></div>
+        <header class="post-title"><%- postTitle %></header>
         <div class="post-body"><%- post %></div>
-        <div class="poster">
-          <p>
-            <span class="posted-by">Posted By: </span>
-            <%- poster %>
-          </p>
-        </div>
+        <footer class="poster"><%- poster %></footer>
       </div>
-  </script>
+    </script>
+  
+    <script id="page-template" type="text/x-lodash-template">
+       <div class="page"></div>
+      <div class="sidebar"></div>
+      <div class="post"><%- post %></div>
+    </script>
     
     
     
