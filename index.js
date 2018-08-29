@@ -1,4 +1,4 @@
-function postPost() {
+function createPost() {
   var postTitle = document.getElementById("postTitle").value;
   var poster = document.getElementById("posterName").value;
   var post = document.getElementById("postText").value;
