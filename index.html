@@ -5,6 +5,9 @@
   </head>
   <body>
     
+    
+    
+    
     <main>
         <article>
             <form id="post-form" onsubmit="createPost();return false;">
@@ -18,23 +21,37 @@
     </main>
     
     
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     
     
-    <script> id="page-template" type="text/x-lodash-template"
-      <div id="sidebar"></div>
-      <div id="post"></div>
-    </script>
     
+      <script id="comments-template" type="text/x-lodash-template">
+        <div id='comments'
+           <form id="newComment" onSubmit="postComment()">
+              Add comment: <input type="text" id="commentText"><br>
+              Your name: <input type="text" id="commenterName"><br>
+              <input type="submit">
+          </form>
+        </div
+     </script>
+     
+     
+   
     
     <script id="post-template" type="text/x-lodash-template">
       <div class="post">
-        <header class="post-title"><%- postTitle %></header>
-        <div class="post-body"><%- post %></div>
-        <footer class="poster"><%- poster %></footer>
+        <article>
+          <header><h2> class="post-title"><%- postTitle %></h2></header>
+          <div class="post-body"><%- post %></div>
+          <footer class="poster"><%- poster %></footer>
+        </article>
       </div>
     </script>
+    
+    
+    
   
     <script id="page-template" type="text/x-lodash-template">
        <div class="page"></div>
