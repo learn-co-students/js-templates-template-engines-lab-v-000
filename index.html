@@ -5,23 +5,49 @@
   </head>
   <body>
     <main>
-      
-      
-      <article>
-          <form id="post-form" onsubmit="postPost();return false;">
-            Title: <input type="text" id="postTitle"><br>
-            Name: <input type="text" id="posterName"><br>
-            Post: <input type="textarea" id="postText"><br>
-            <input type="submit">
-          </form>
-          <div id="comments"></div>
-    </article>
-      
+  
+        <article>
+            <form id="post-form" onsubmit="postPost();return false;">
+              Title: <input type="text" id="postTitle"><br>
+              Name: <input type="text" id="posterName"><br>
+              Post: <input type="textarea" id="postText"><br>
+              <input type="submit">
+            </form>
+            <div id="comments"></div>
+      </article>
+        
     </main>
     
     
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    
+    
+    
+    
+    <script id="post-template" type="text/x-lodash-template">
+      <div class="post">
+      <div class="post-title"><%- postTitle %></div>
+        <div class="post-body"><%- post %></div>
+        <div class="poster">
+          <p>
+            <span class="posted-by">Posted By: </span>
+            <%- poster %>
+          </p>
+        </div>
+      </div>
+  </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
