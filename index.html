@@ -34,12 +34,13 @@
               Your name: <input type="text" id="commenterName"><br>
               <input type="submit">
           </form>
-        </div
+        </div>
      </script>
+     
      
      <script id="comment-template" type="text/x-lodash-template">
       <div class="comment">
-        <p class="comment-body"><%- comment %></p>
+        <p class="comment-body"><%- commentText %></p>
         <footer class="commenter"><%- commenter %></footer>
       </div>
      </script>
