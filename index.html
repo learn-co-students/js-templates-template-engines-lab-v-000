@@ -5,7 +5,21 @@
   </head>
   <body>
     <main>
+      
+      
+      <article>
+          <form id="post-form" onsubmit="postPost();return false;">
+            Title: <input type="text" id="postTitle"><br>
+            Name: <input type="text" id="posterName"><br>
+            Post: <input type="textarea" id="postText"><br>
+            <input type="submit">
+          </form>
+          <div id="comments"></div>
+    </article>
+      
     </main>
+    
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -15,7 +29,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
-    
     
 
     
