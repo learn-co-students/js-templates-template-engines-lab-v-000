@@ -6,7 +6,7 @@ function createPost() {
 
   var postTemplate = document.getElementById("post-template").innerHTML;
  
-  var templateFn = _.template(posttTemplate);
+  var templateFn = _.template(postTemplate);
  
   var postsDiv = document.getElementById("posts");
  
