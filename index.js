@@ -7,13 +7,12 @@ function createPost() {
   var postTemplateFn = _.template(postTemplate);
  
   var postsDiv = document.getElementById("posts");
-  var templateHTML = templateFn({'postTitle': postTitle, 'post': post, 'poster': poster });
-  postsDiv.innerHTML += templateHTML;
+  var postTemplateHTML = postTemplateFn({'postTitle': postTitle, 'post': post, 'poster': poster });
+  postsDiv.innerHTML += postTemplateHTML;
   
   
   
   var pageTemplate = document.getElementById("page-template").innerHTML
-  
   var pageTemplateFn = _.template(pageTemplate);
 
 }
