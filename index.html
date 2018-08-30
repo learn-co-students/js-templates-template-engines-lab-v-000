@@ -26,29 +26,7 @@
     <script src="index.js"></script>
     
     
-    
-      <script id="comments-template" type="text/x-lodash-template">
-        <div id="comments">
-           <form id="newComment" onSubmit="postComment();return false;">
-              Add comment: <input type="text" id="commentText"><br>
-              Your name: <input type="text" id="commenterName"><br>
-              <input type="submit">
-          </form>
-        </div>
-     </script>
-     
-     
-     <script id="comment-template" type="text/x-lodash-template">
-      <div class="comment">
-        <p class="comment-body"><%- commentText %></p>
-        <footer class="commenter"><%- commenter %></footer>
-      </div>
-     </script>
-     
-     
-   
-    
-    <script id="post-template" type="text/x-lodash-template">
+        <script id="post-template" type="text/x-lodash-template">
       <div class="post">
         <article>
           <header class="post-title"><h2><%= postTitle %></h2></header>
@@ -69,13 +47,28 @@
     
     
     
+  
+     
+     
+     <script id="comment-template" type="text/x-lodash-template">
+      <div id="comment">
+        <p class="comment-body"><%- commentText %></p>
+        <footer class="commenter-name"><%- commenterName %></footer>
+      </div>
+     </script>
+     
+      <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+           <form id="newComment" onSubmit="postComment();return false;">
+              Add comment: <input type="text" id="commentText"><br>
+              Your name: <input type="text" id="commenterName"><br>
+              <input type="submit">
+          </form>
+        </div>
+     </script> 
+   
     
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -91,3 +84,4 @@
     
   </body>
 </html>
+
