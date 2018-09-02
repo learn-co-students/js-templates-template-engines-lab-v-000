@@ -7,42 +7,54 @@
     <main>
       <article>
       <form id="post-form" onsubmit="createPost();return false;">
-  Name: <input type="text" id="authorName"><br>
-  Name: <input type="text" id="postTitle"><br>
+  Your Name: <input type="text" id="authorName"><br>
+  Post Title: <input type="text" id="postTitle"><br>
   Content: <input type="textarea" id="postContent"><br>
   <input type="submit">
 </form>
 <div id="posts"></div>
 
 <form id="comment-form" onsubmit="postComment();return false;">
-    Name: <input type="text" id="commenterName"><br>
+    Name: <input type="text" id="commenter"><br>
     Comment: <input type="textarea" id="commentText"><br>
     <input type="submit">
   </form>
-
 </article>
     </main>
+
     <script id="post-template" type="text/x-lodash-template">
      <article>
        <header><h2><%- title %></h2><header>
        <p><%- body %></p>
-       <footer>Posted by: <%= poster %></footer>
+       <footer>Posted by: <%- poster %></footer>
      </article>
    </script>
-   script id="comment-template" type="text/x-lodash-template">
-    <div class="comment">
-      <div class="comment-body"><%= comment %></div>
-      <div class="commenter">
-        <p>
-          <span class="posted-by">Posted By: </span>
-          <%= commenter %>
-        </p>
-      </div>
+
+   <script src="node_modules/lodash/lodash.min.js"></script>
+   <script src="index.js"></script>
+
+   <script id="comments-template" type="text/x-lodash-template">
+     <div id="comments">
+       <form onsubmit="postComment();return false;">
+         Name: <input type="text" id="commenter"><br>
+         Content: <input type="text" id="commentText"><br>
+         <input type="submit">
+       </form>
+     </div>
+   </script>
+
+   <script id="comment-template" type="text/x-lodash-template">
+    <div>
+      <p><%= comment %></p>
+      <footer>Posted by: <%= commenter %></footer>
     </div>
   </script>
+
+
+ <script id="page-template" type="text/x-lodash-template">
+   <div id="sidebar"></div>
+   <div id="post"></div>
  </script>
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
