@@ -6,6 +6,9 @@
   <body>
     <main>
       <form id="post-form" onsubmit="createPost()">
+        Name: <input type="text" id="post-name">
+        Content: <input type="text" id="post-content">
+        <input type="submit">
       </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
@@ -17,9 +20,16 @@
         <footer>Posted by: <%- poster %></footer>
       </article>
     </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="comment"><%- comment %></div>
+      <footer>Posted by: <%- commenter %></footer>
+    </script>
     <script id="comments-template" type="text/x-lodash-template">
       <div class="comments"></div>
       <form id="comments-form" onsubmit="postComment()">
+        Name: <input type="text" id="commenter"><br>
+        Comment: <input type="text" id="comment"><br>
+        <input type="submit">
       </form>
     </script>
     <script id="page-template">
