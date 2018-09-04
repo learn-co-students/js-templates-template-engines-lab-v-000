@@ -3,11 +3,14 @@ const createPost = function() {
   var postContent = document.getElementById("post-content").value
   var poster = document.getElementById("poster").value
 
-  var postTemplate = document.getElementById("post-template").innerHTML
-  var pageTemplate = document.getElementById("page-template").innerHTML
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML)
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML)
 
-  var postTemplateFn = _.template(postTemplate)
-  var postHTML = postTemplateFn({'title': postName, 'body': postContent, 'poster': poster})
+  var postHTML = postTemplate({'title': postName, 'body': postContent, 'poster': poster})
+
+  var postElement = document.getElementById("post")
+  postElement.innerHTML += postHTML
+  document.getElementByTagName("main")[0].innerHTML += pageTemplate({'post': postElement, 'sidebar': ''})
 }
 
 const postComment = function() {
