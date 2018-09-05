@@ -26,12 +26,13 @@
       <footer>Posted by: <%- commenter %></footer>
     </script>
     <script id="comments-template" type="text/x-lodash-template">
-      <div class="comments"></div>
-      <form id="comments-form" onsubmit="postComment();">
-        Name: <input type="text" id="commenter"><br>
-        Comment: <input type="text" id="comments"><br>
-        <input type="submit">
-      </form>
+      <div id="comments">
+        <form onsubmit="postComment();">
+          Name: <input type="text" id="commenter"><br>
+          Comment: <input type="text" id="comment-content"><br>
+          <input type="submit">
+        </form>
+      </div>
     </script>
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"> </div>

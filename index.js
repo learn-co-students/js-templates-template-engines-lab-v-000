@@ -11,18 +11,20 @@ function createPost() {
 
   document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
   var postElement = document.getElementById("post");
-  postElement.innerHTML += postHTML;
+  postElement.innerHTML = postHTML;
+  var commentElement = document.getElementsByTagName("footer")[0]
+  commentElement.innerHTML += commentsTemplate()
 
 }
 
 function postComment() {
-  var commenter = document.getElementById(".comments-template .comments-form .commenter").value
-  var comment = document.getElementById(".comments-template .comments-form .comment").value
+  var commenter = document.getElementById("commenter").value
+  var comment = document.getElementById("comment-content").value
 
   var commentTemplate = _.template(document.getElementById("comment-template").innerHTML)
 
   var commentHTML = commentTemplate({"commenter": commenter, "comment": comment})
 
-  commentElement = document.getElementById("comments")
-  commentElement += commentHTML
+  commentElement = document.getElementById("comments")[0]
+  commentElement.innerHTML += commentHTML
 }
