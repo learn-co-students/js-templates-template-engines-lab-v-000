@@ -5,7 +5,7 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onsubmit="createPost()">
+      <form id="post-form" onsubmit="createPost();">
         Name: <input type="text" id="post-name"><br>
         Content: <input type="text" id="post-content"><br>
         Author: <input type="text" id="poster"><br>
@@ -27,13 +27,13 @@
     </script>
     <script id="comments-template" type="text/x-lodash-template">
       <div class="comments"></div>
-      <form id="comments-form" onsubmit="postComment()">
+      <form id="comments-form" onsubmit="postComment();">
         Name: <input type="text" id="commenter"><br>
-        Comment: <input type="text" id="comment"><br>
+        Comment: <input type="text" id="comments"><br>
         <input type="submit">
       </form>
     </script>
-    <script id="page-template">
+    <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"> </div>
       <div id="post"> </div>
     </script>
