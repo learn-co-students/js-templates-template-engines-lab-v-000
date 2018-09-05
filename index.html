@@ -5,9 +5,39 @@
   </head>
   <body>
     <main>
+
+          <form id="post-form" onsubmit="createPost()">
+            <input id="title" type="text" name="" value="">
+            <input id="body" type="text" name="" value="">
+            <input id="author" type="text" name="" value="">
+            <input type="submit" name="" value="">
+          </form>
+
+          <script id="comments-template" type="text/x-lodash-template">
+            <form onsubmit="postComment()">
+              <input id="comment" type="text" name="" value="">
+            </form>
+            <div id="comments"></div>
+          </script>
+
+          <script id="comment-template" type="text/x-lodash-template">
+          <footer></footer>
+          </script>
+
+          <script id="page-template" type="text/x-lodash-template">
+            <div id="sidebar"></div>
+            <div id="post"><%= body %></div>
+          </script>
+
+          <script id="post-template" type="text/x-lodash-template">
+            <article>
+            <header></header>
+            <footer></footer>
+            </article>
+          </script>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
@@ -15,5 +45,8 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+
+  <script src="index.js"></script>
   </body>
 </html>
