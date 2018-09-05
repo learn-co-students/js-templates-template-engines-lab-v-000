@@ -5,7 +5,7 @@ function createPost() {
 
   var postTemplate = _.template(document.getElementById("post-template").innerHTML);
   var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
-  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
   var postHTML = postTemplate({'title': postName, 'body': postContent, 'poster': poster});
 
