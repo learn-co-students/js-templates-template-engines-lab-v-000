@@ -1,19 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JavaScript lodash Templates Lab</title>
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
-    <!-- Open this file and call `mocha.run()` in console to run tests -->
-    <div id="mocha"></div>
-    <script src="node_modules/mocha/mocha.js"></script>
-    <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="test/index-test.js"></script>
-  </body>
+<head>
+  <title>JavaScript lodash Templates Lab</title>
+</head>
+<body>
+  <main>
+
+    <form onsubmit="createPost();return false;">
+      <div id="post-form"></div>
+      Title: <input type="text" id="postTitle"><br>
+      Body: <input type="textarea" id="postBody"><br>
+
+      Author: <input type="text" id="postAuthor"><br>
+
+      <input type="submit">
+    </form>
+
+
+  </main>
+  <script src="node_modules/lodash/lodash.min.js"></script>
+  <script src="index.js"></script>
+  <!-- Open this file and call `mocha.run()` in console to run tests -->
+  <div id="mocha"></div>
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script src="node_modules/expect/umd/expect.min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="test/index-test.js"></script>
+
+  <!-- Create a template with an id of page-template that will represent the page of a blog post, -->
+  <!-- including a sidebar element and a post element that will hold our blog post. -->
+
+  <!-- Page Template -->
+  <script id="page-template" type="text/x-lodash-template">
+  <div id="sidebar"></div>
+  <div id="post"></div>
+  </script>
+  <!-- Page Template End -->
+
+  <!-- Create a post-template that will represent the blog post itself.  -->
+  <!-- It should have a header for the post title and a footer for the post author,  -->
+  <!-- and be wrapped in an article element. -->
+
+  <!-- Post Template -->
+  <script id="post-template" type="text/x-lodash-template">
+  <article>
+  <header><h2><%- postTitle %></h2></header>
+  <p id="post-form"><%- postBody %></p>
+  <footer><h2><%- postAuthor %></h2></footer>
+  </article>
+  </script>
+  <!-- Post Template End -->
+
+  <!-- Create a comments-template that will be the container for the  -->
+  <!-- collection of comments on the blog post, as well as the comment form. -->
+
+  <!-- Comments Template -->
+  <!-- <script id="comments-template" type="text/x-lodash-template">
+  <div id="comments"></div>
+
+  <form onsubmit="postComment();return false;">
+    Name: <input type="text" id="commenterName"><br>
+    Comment: <input type="textarea" id="comments"><br>
+
+    <input type="submit">
+  </form>
+  </script>
+  <! Comments Template End -->
+
+  <!-- Create a comment-template that will hold an individual comment.
+  Should have a footer for the commenter name. -->
+
+
+  <!-- Comment Template -->
+  <!-- <script id="comment-template" type="text/x-lodash-template">
+  <div class="comment">
+    <div class="comment-body"><%= comment %></div>
+  <footer><h2><%- commenterName %></h2></footer>
+
+  </script>  -->
+
+
+  <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenter"><br>
+          Comment: <input type="text" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div>
+        <p><%= comment %></p>
+        <footer>Posted by: <%= commenter %></footer>
+      </div>
+    </script>
+  <!-- Comment Template End -->
+
+</body>
 </html>
