@@ -1,30 +1,30 @@
 function createPost() {
-  event.preventDefault();
-  let post = document.getElementById("post_content").value;
-  let postTemplate = document.getElementById("post-template").innerHTML;
+  // create template functions
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
-  //create template function
-  let templateFn = _.template(postTemplate);
-  let postDiv = document.getElementById("posts");
+  // get blog values
+  var postTitle = document.getElementById("postTitle").value;
+  var postAuthor = document.getElementById("postAuthor").value;
+  var post = document.getElementById("postBody").value;
 
-  //execute template function with JSON object for the interpolated values
-  let templateHTML = templateFn({ 'post': post });
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-  //append rather than replace!
-  postDiv.innerHTML += templateHTML;
+  var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+  var commentsSection = commentsTemplate();
+  var postElement = document.getElementById("post");
+
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 }
 
 function postComment() {
-  event.preventDefault();
-  let comment = document.getElementById("comment_content").value;
-  let commentTemplate = document.getElementById("comment-template").innerHTML;
-  //create template function
-  let templateFn = _.template(commentTemplate);
-  let commentDiv = document.getElementById("comments");
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-  //execute template function with JSON object for the interpolated values
-  let templateHTML = templateFn({ 'comment': comment });
+  var commentText = document.getElementById("commentText").value;
+  var commenterName = document.getElementById("commenter").value;
 
-  //append rather than replace!
-  commentDiv.innerHTML += templateHTML;
+  var commentsSection = document.getElementById("comments");
+  commentsSection.innerHTML += commentTemplate({ 'commenter': commenterName, 'comment': commentText });
 }
