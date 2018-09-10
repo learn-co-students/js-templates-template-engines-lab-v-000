@@ -23,17 +23,19 @@
       </script>
     </div>
   </div>
+  <div>
+    <form id="comment-form" onsubmit="postComment()">
+      <label for="comment_content">Comment</label>
+      <input type="text" name="comment_content" id="comment_content"><br>
+    </form>
+  </div>
+  <div id="comments">
     <script id="comment-template" type="text/x-lodash-template">
       <div class="comment">
         <div class="comment-body"><%= comment %></div>
-        <div class="commenter">
-          <p>
-            <span class="posted-by">Posted By: </span>
-            <%= commenter %>
-          </p>
-        </div>
       </div>
     </script>
+  </div>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
