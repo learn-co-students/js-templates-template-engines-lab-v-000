@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html>
   <head>
     <title>JavaScript lodash Templates Lab</title>
@@ -12,18 +12,7 @@
       Author: <input id="author" type="text"><br>
       <input type="submit">
     </form>
-
-    </main>
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
-    <!-- Open this file and call `mocha.run()` in console to run tests -->
-    <div id="mocha"></div>
-    <script src="node_modules/mocha/mocha.js"></script>
-    <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="test/index-test.js"></script>
-  
+    
     <script id="page-template" type="text/x-lodash-template">
       <div id="sidebar"></div>
       <div id="post"></div>
@@ -31,9 +20,9 @@
     
     <script id="post-template" type="text/x-lodash-template">
       <article>
-        <header id="post-title"><%- title %></header>
-        <div id="post-body"><%- body %></div>
-        <footer id="post-author"><%- author %></footer>
+        <header id="postTitle"><%- title %></header>
+        <div id="postBody"><%- body %></div>
+        <footer id="postAuthor"><%- author %></footer>
       </article>
     </script>
     
@@ -59,5 +48,18 @@
       <footer class="commenter"><%-commenter%></div>
     </script>
   
+
+    </main>
+    <script src="node_modules/lodash/lodash.min.js"></script>
+    <script src="index.js"></script>
+    <!-- Open this file and call `mocha.run()` in console to run tests -->
+    <div id="mocha"></div>
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/expect/umd/expect.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="test/index-test.js"></script>
+  
+
   </body>
 </html>
