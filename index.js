@@ -1,32 +1,11 @@
 function createPost() {
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const author = document.getElementById("author").value;
-
   const postTemplate = document.getElementById("post-template").innerHTML;
-
-  const templateFn = _.template(postTemplate);
-
-  const postDiv = document.getElementsByClassName("post");
-
-  const templateHTML = templateFn({'title': title, 'body': body, 'author':author});
-
-  postDiv.innerHTML += templateHTML;
+  const pageTemplate = document.getElementById("page-template").innerHTML;
+  const postTemplateFn = _.template(postTemplate);
+  const pageTemplateFn = _.template(pageTemplate);
 }
 
 function postComment() {
-  const comment = document.getElementById("comment").value;
-  const commenter = document.getElementById("commenter").value;
-
-  var commentTemplate = document.getElementById("comment-template").innerHTML;
-  
-  var templateFn = _.template(commentTemplate);
-
-  var commentsDiv = document.getElementById("comments");
-
-
-  var templateHTML = templateFn({ 'comment': comment, 'commenter': commenter });
-
-
-  commentsDiv.innerHTML += templateHTML;
+  const commentTemplate = document.getElementById("comment-template").innerHTML;
+  const templateFn = _.template(commentTemplate);
 }
