@@ -15,5 +15,45 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <form id="post-form" onsubmit="createPost();return false">
+      Title: <input type="text" id="title">
+      Body: <input type="text" id="body">
+      Author: <input type="text" id="author">
+      <input type="submit">
+    </form>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+        <div id="post"></div>
+      </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <header class="post-title"><%- title %></header>
+      <article class="post-body"><%- body %></article>
+      <footer>
+        <span class="posted-by">Post By: </span>
+        <%- author %>
+      </footer>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment()">
+          Note: <input type="text" id="comment">
+          Name: <input type="text" id="name">
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer>
+        <div class="comment-body"><%- comment %></div>
+        <span class="posted-by">Note By: </span>
+        <%- commenter %>
+      </footer>
+    </script>
   </body>
 </html>
