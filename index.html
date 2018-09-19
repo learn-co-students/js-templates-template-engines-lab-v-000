@@ -5,7 +5,7 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onsubmit="createPost()">
+      <form id="post-form" onsubmit="createPost();return false;">
         Title: <input id="title" type="text" name="title" value=""><br>
         Body: <input id="body" type="text" name="body" value=""><br>
         Author: <input id="author" type="text" name="author" value=""><br>
@@ -33,7 +33,7 @@
 
       <script id="comments-template" type="text/x-lodash-template">
         <div id="comments">
-          <form id="comment-form" onsubmit="postComment()">
+          <form onsubmit="postComment()">
             Comment: <input id="comment" type="text" name="comment" value="">
             <input type="submit" name="" value="Add Comment">
           </form>
@@ -43,12 +43,12 @@
       <script id="comment-template" type="text/x-lodash-template">
         <div><%= comment %></div>
         <footer></footer>
-
       </script>
 
-      <div id="div-page-template">
-      </div>
+
       <div id="comments-in-div">
+        <div id="div-page-template">
+        </div>
       </div>
 
     </main>

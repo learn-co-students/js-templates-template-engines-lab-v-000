@@ -14,10 +14,10 @@ function createPost() {
 
   let templateHTML = postTemplate({ 'title': title, 'body': body, 'author': author });
 
-  let submit = document.getElementById("submit")
-  submit.addEventListener("click", function (event) {
-    event.preventDefault()
-  })
+  // let submit = document.getElementById("submit")
+  // submit.addEventListener("click", function (event) {
+  //   event.preventDefault()
+  // })
 
   divs.innerHTML += templateHTML;
   postComment()
