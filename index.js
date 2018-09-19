@@ -17,14 +17,24 @@ function createPost() {
   let submit = document.getElementById("submit")
   submit.addEventListener("click", function (event) {
     event.preventDefault()
-  }, false)
-  
+  })
+
   divs.innerHTML += templateHTML;
-
-
+  postComment()
 }
 
 function postComment() {
-  let commentScript = document.getElementById("comments-template").innerHTML;
+  // let comment = document.getElementById("comment").value
+
+  let commentsScript = document.getElementById("comments-template").innerHTML;
+  let commentsTemplate = _.template(commentsScript)
+
+  let commentScript = document.getElementById("comment-template").innerHTML;
   let commentTemplate = _.template(commentScript)
+
+  // let templateHTML = commentTemplate({ 'comment': comment});
+
+  let divs = document.getElementById("comments-in-div")
+  divs.innerHTML += commentsTemplate()
+
 }
