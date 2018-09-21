@@ -2,10 +2,48 @@
 <html>
   <head>
     <title>JavaScript lodash Templates Lab</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   </head>
   <body>
     <main>
-    </main>
+        <article>
+            <script  id="post-template" type="text/x-lodash-template">
+            <header><span class="title"><%= title %></span></header>
+                <footer><span class="posted-by">Posted By:<%= posted-by %></span></footer>
+            </script>
+        </article>
+
+            <script class="page-template" type="text/x-lodash-template">
+            <form id="post-form" onsubmit="createPost();return false;">
+                                By: <input type="textarea" id="posted-by"><br>
+                                title: <input type="textarea" id="post">
+                                <button type="submit">Submit</button>
+            </form>
+            </script>
+
+        <div class="post">
+        </div>
+            <form id="comment-form" onsubmit="createComment();return false;">
+                By: <input type="textarea" id="commenterName"><br>
+                Content: <input type="textarea" id="commentText">
+                <button type="submit">Submit</button>
+            </form>
+            <div class="comments">
+
+            </div>
+
+    <script id="comment-template" type="text/x-lodash-template">
+        <div class="comment">
+            <p><%= comment %></p>
+            <p>Posted By: <span class="commenterName"><%= commenterName %></span></p>
+        </div>
+    </script>
+
+
+
+
+
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
