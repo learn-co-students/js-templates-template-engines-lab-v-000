@@ -8,21 +8,23 @@
     <main>
         <article>
             <script  id="post-template" type="text/x-lodash-template">
-            <header><span class="title"><%= title %></span></header>
-                <footer><span class="posted-by">Posted By:<%= posted-by %></span></footer>
+                <div id="post">
+                    <header><span class="post"><%= post %></span></header>
+                    <footer><span class="author">Posted By:<%= author %></span></footer>
+                </div>
             </script>
         </article>
+        <form id="post-form" onsubmit="createPost();return false;">
+            By: <input type="textarea" id="author"><br>
+            title: <input type="textarea" id="post">
+            <button type="submit">Submit</button>
+        </form>
+            <script id="page-template" type="text/x-lodash-template">
+            <div id="sidebar"></div>
 
-            <script class="page-template" type="text/x-lodash-template">
-            <form id="post-form" onsubmit="createPost();return false;">
-                                By: <input type="textarea" id="posted-by"><br>
-                                title: <input type="textarea" id="post">
-                                <button type="submit">Submit</button>
-            </form>
             </script>
 
-        <div class="post">
-        </div>
+
             <form id="comment-form" onsubmit="createComment();return false;">
                 By: <input type="textarea" id="commenterName"><br>
                 Content: <input type="textarea" id="commentText">
@@ -32,10 +34,12 @@
 
             </div>
 
+            <script id="comments-template" type="text/x-lodash-template">
+            </script>
     <script id="comment-template" type="text/x-lodash-template">
-        <div class="comment">
+        <div id="comment">
             <p><%= comment %></p>
-            <p>Posted By: <span class="commenterName"><%= commenterName %></span></p>
+            <p>Posted By: <span id="commenterName"><%= commenterName %></span></p>
         </div>
     </script>
 
