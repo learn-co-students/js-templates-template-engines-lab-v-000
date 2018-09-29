@@ -6,33 +6,37 @@
   <body>
     <main>
 
-      <form id="post-form" onsubmit="createPost();return false;">
+      <!-- Make the form for the post-->
+      <form id="post-form" onsubmit="createPost(); return false;">
         Title: <input type="text" id="postTitle"><br>
         Author: <input type="text" id="postAuthor"><br>
         Post: <input type="text" id="postBody"><br>
         <input type="submit">
       </form>
 
+
       <script src="node_modules/lodash/lodash.min.js"></script>
       <script src="index.js"></script>
 
-
-      <script id="page-template" type="text/x-lodash-template">
-        <div id="sidebar"></div>
-        <div id="post"></div>
+      <!--Make page-template-->
+      <script id="page-template" type="text/x-lodash-template">;
+        <div id="sidebar"</div>
+        <div id="post"</div>
       </script>
 
-      <script id="post-template" type="text/x-lodash-template">
+      <!--Make post-template-->
+      <script id="post-template" type="text/x-lodash-template">;
         <article>
           <header><h2><%= title %></h2></header>
           <p><%= body %></p>
-          <footer>Posted by: <%= author %></footer>
+          <footer>Posted By: <%= author %></footer>
         </article>
       </script>
 
-      <script id="comments-template" type="text/x-lodash-template">
-        <div id="comments">
-          <form onsubmit="postComment();return false;">
+      <!--Make comments template-->
+      <script id="comments-template" type="text/x-lodash-template">;
+        <div id="comments"
+          <form onsubmit="postComment(); return false;">
             Name: <input type="text" id="commenter"><br>
             Comment: <input type="text" id="commentText"><br>
             <input type="submit">
@@ -40,10 +44,11 @@
         </div>
       </script>
 
-      <script id="comment-template" type="text/x-lodash-template">
+      <!--Make comment-template-->
+      <script id="comment-template" type="text/x-lodash-template">;
         <div>
           <p><%= comment %></p>
-          <footer>Posted by: <%= commenter %></footer>
+          <footer>Posted by:<%= commenter %></footer>
         </div>
       </script>
 
