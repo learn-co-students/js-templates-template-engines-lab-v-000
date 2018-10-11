@@ -3,7 +3,94 @@
   <head>
     <title>JavaScript lodash Templates Lab</title>
   </head>
-  <body>
+
+  <article>
+    <header><h2>Kitty Thought Feed</h2></header>
+
+    <p>
+      A digital space for kittys (of all kinds) to bitch and moan about their easy lives
+    </p>
+
+    <form onsubmit="postComment();return false;">
+      Name: <input type="text" id="commenterName"><br><br>
+      Comment: <input type="textarea" id="commentText"><br><br>
+      <input type="submit">
+    </form>
+
+    <br><br>
+
+    <div id="comments"></div>
+
+  </article>
+
+  <script src="lodash.min.js"></script>
+  <script src="index.js"></script>
+
+  <script id="comment-template" type="text/x-lodash-template">
+    <div class="comment">
+      <div class="comment-body"><%- comment %></div>
+      <div class="commenter">
+        <p>
+          <span class="posted-by">Posted By: </span>
+          <% if(commenter !== '') { %>
+          <%= commenter %>
+          <% } else { %>
+          Anonymous
+          <% } %>
+        </p>
+      </div>
+
+  </script>
+
+
+  <body class="flex justify-center">
+    <div class="mt4" style="width: 600px;">
+    <div class="flex border-bottom mb2">
+     <div>
+       <img class="rounded mr2 col-2" src="https://images.pexels.com/photos/209037/pexels-photo-209037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="upset-kitty" />
+    </div>
+
+     <div class="flex flex-column">
+       <small>
+         <strong>City Kitty</strong>
+         <span class="muted"> @citykitty - Oct 11</span>
+       </small>
+       <p>
+         What the heck is going on with this template?
+       </p>
+      </div>
+    </div>
+
+    <div class="flex border-bottom mb2">
+     <div>
+       <img class="rounded mr2 col-2" src="https://images.pexels.com/photos/35888/amazing-beautiful-breathtaking-clouds.jpg?auto=compress&cs=tinysrgb&h=650&w=940" alt="october-kitty">
+     </div>
+
+     <div class="flex flex-column">
+       <small>
+         <strong>Spooky Kitty</strong>
+         <span class="muted">@spookykitty - Oct 11</span>
+       </small>
+       <p>Hmm...template..what? Go do cat things and get outside..! @citykitty</p>
+     </div>
+    </div>
+
+    <div class="flex border-bottom mb2">
+      <div>
+      <img class="rounded mr2 col-2" src="https://images.pexels.com/photos/909620/pexels-photo-909620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="couch-kitty">
+      </div>
+
+      <div class="flex flex-column">
+        <small>
+         <strong>Boss Kitty</strong>
+         <span class="muted">@bosskitty - Oct 11</span>
+        </small>
+        <p>Yep, if you were smart like me, you would have a human figure this out.</p>
+      </div>
+    </div>
+
+
+
     <main>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
@@ -15,5 +102,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
   </body>
 </html>
