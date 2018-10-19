@@ -5,11 +5,14 @@
   </head>
   <body>
     <main>
-      <form id="post-form" onSubmit="createPost">
+
+      <form id="post-form" onSubmit="createPost();return false">
         Post Title: <input type="text" id="postTitle"><br>
+        Post Body: <input type="text" id="postBody"><br>
         Post Author: <input type="text" id="postAuthor"><br>
         <input type="submit">
       </form>
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -30,20 +33,23 @@
     </script>
     <script id="post-template" type="text/x-lodash-template">
       <article>
-        <header></header>
-        <footer></footer>
+        <header><%-postTitle%></header>
+        <p><%-postBody%></p>
+        <footer>Posted by: <%-postAuthor%></footer>
       </article>
     </script>
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
       </div>
-      <form onsubmit="postComment()">
+      <form onsubmit="postComment();return false">
         Commenter <input type="text" id="commenter"><br>
         Comment <input type="text" id="commentText"><br>
+        <input type="submit">
       </form>
     </script>
     <script id="comment-template" type="text/x-lodash-template">
-      <footer></footer>
+      <p><%-commentBody%>
+      <footer>Posted by: <%-commentAuthor%></footer>
     </script>
   </body>
 </html>
