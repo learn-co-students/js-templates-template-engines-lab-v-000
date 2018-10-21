@@ -5,6 +5,10 @@
   </head>
   <body>
     <main>
+      <form id="post-form">
+        Post: <input type="text" name="post">
+        <input type="submit">
+        </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +19,29 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <div id="post">
+        <article>
+          <header><%= "Template must have a <header> element" %></header>
+          <footer><%= "Template must have a <footer> element" %></footer>
+        </article>
+      </div>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment()">
+          Comment: <input type="text" name="comment">
+          Your name: <input type="text" name="commentor">
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer><%= "Template must have a <footer> element" %></footer>
+    </script>
   </body>
 </html>
