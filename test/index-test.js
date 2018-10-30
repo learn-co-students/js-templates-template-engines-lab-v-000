@@ -31,6 +31,7 @@ describe('index', () => {
       it('builds the proper templates', () => {
         createPost()
         var spy = expect.spyOn(window._, 'template').andReturn(function(){})
+
         postComment()
         expect(spy).toHaveBeenCalledWith(document.getElementById("comment-template").innerHTML)
       })
