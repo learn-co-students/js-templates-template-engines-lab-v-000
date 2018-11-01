@@ -6,6 +6,21 @@
   <body>
     <main>
     </main>
+    <!-- 
+      describe('post form', () => {
+    it('exists and submits correctly', () => {
+      var postForm = document.getElementById("post-form");
+      expect(postForm).toExist("Must have a form with an id of post-form");
+      expect(postForm).toMatch(/onsubmit="createPost()/, "Form must submit to a createPost() function");
+    })
+  })
+    -->
+    <form id="post-form" onsubmit="createPost();return false">
+        <input type="submit" value="submit" name="submit">
+    </form>
+    
+    
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -14,6 +29,38 @@
     <script src="node_modules/expect/umd/expect.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
+    
+    <!--Page Template -->
+    <script id='page-template'  type="text/x-lodash-template">
+       <div id="sidebar"></div> 
+        <div id="post"></div>
+    </script>
+    <script id="post-template"   type="text/x-lodash-template">
+          <article>
+        <header></header>
+        <footer></footer>
+      </article>
+    </script>
+     <script id="comments-template" type="text/x-lodash-template">
+       <div id="comments">
+          <form onsubmit="postComment()">
+          
+          </form>
+      </div>
+    </script>
+    <script id="comment-template"  type="text/x-lodash-template">
+      <footer></footer>
+    </script>
+ 
+   
+    <script id=""  type="text/x-lodash-template">
+    </script>
+    <script id=""  type="text/x-lodash-template">
+    </script>
+    
+    
+    
+    <!-- Main Template -->
     <script src="test/index-test.js"></script>
   </body>
 </html>
