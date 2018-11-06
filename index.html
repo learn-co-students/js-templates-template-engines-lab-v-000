@@ -19,16 +19,16 @@
     <script src="index.js"></script>
 
     <script id="page-template" type="text/x-lodash-template">
-    <div id="sidebar"></div>
-    <div id="post"></div>
+      <div id="sidebar"></div>
+      <div id="post"></div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
-      <article>
-      <header><%- title %></header>
-      <p><%- body %></p>
-      <footer>Posted by: <%- author %></footer>
-      </article>
+          <article>
+          <header><%- title %></header>
+            <p><%- body %></p>
+            <footer>Posted by: <%- author %></footer>
+          </article>
       </script>
 
       <script id="comments-template" type="text/x-lodash-template">
@@ -39,13 +39,14 @@
           <input type="submit">
           </form>
           </div>
+      </script>
 
         <script id="comment-template" type="text/x-lodash-template">
           <div>
           <p><%= comment %></p>
           <footer>Posted by: <%=commenter %></footer>
           </div>
-          </script>
+        </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
