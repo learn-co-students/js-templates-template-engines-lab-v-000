@@ -30,8 +30,10 @@
     <script id="post-template" type="text/x-lodash-template">
       // represents the blog post itself
       <article>
-      // header for the post title
-      // footer for author
+        // header for the post title
+        <header></header>
+        // footer for author
+        <footer></footer>
       </article>
     </script>
 
@@ -39,14 +41,15 @@
       // container for the collection of comments on the blog post
       // and for the comment form
       // has a div with id "comments"
+      // form submits using postComment()
       <div id="comments">
-        <form id="post-comment">
-        // commenter name
-        // comment text
-        // submit using postComment()
+        <form onsubmit="postComment(); return false">
         // insert individual comments in comments section
+          Name: <input type="text" id="commenterNamer">
+          Comment: <input type="comment">
+          <input type="submit">
         </form>
-      </div<
+      </div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
