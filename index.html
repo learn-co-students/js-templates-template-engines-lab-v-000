@@ -10,12 +10,12 @@
     <script src="index.js"></script>
 
     <!-- Post Form -->
-
-    <form id="post-form">
-      <!-- submit using createPost() -->
-      title:
-      author:
-      body:
+    <!-- submit using createPost() -->
+    <form id="post-form" onsubmit="createPost(); return false">
+      Title: <input type="text" id="postTitle"><br><br>
+      Author: <input type="text" id="postAuthor"><br><br>
+      Body: <input type="textarea" id="postBody"><br><br>
+      <input type="submit">
     </form>
 
     <!-- templates -->
