@@ -4,19 +4,21 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+
     <main>
+      <!-- Post Form -->
+      <!-- submit using createPost() -->
+      <form id="post-form" onsubmit="createPost(); return false">
+        Title: <input type="text" id="postTitle"><br><br>
+        Author: <input type="text" id="postAuthor"><br><br>
+        Body: <input type="textarea" id="postBody"><br><br>
+        <input type="submit">
+      </form>
+
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
-
-    <!-- Post Form -->
-    <!-- submit using createPost() -->
-    <form id="post-form" onsubmit="createPost(); return false">
-      Title: <input type="text" id="postTitle"><br><br>
-      Author: <input type="text" id="postAuthor"><br><br>
-      Body: <input type="textarea" id="postBody"><br><br>
-      <input type="submit">
-    </form>
 
     <!-- templates -->
 
@@ -31,9 +33,10 @@
       // represents the blog post itself
       <article>
         // header for the post title
-        <header></header>
+        <header><h2><%- postTitle %></h2></header>
+        <p><%- postBody %><p>
         // footer for author
-        <footer></footer>
+        <footer>Posted by: <%- postAuthor</footer>
       </article>
     </script>
 
@@ -46,7 +49,7 @@
         <form onsubmit="postComment(); return false">
         // insert individual comments in comments section
           Name: <input type="text" id="commenterNamer">
-          Comment: <input type="comment">
+          Comment: <input type="textarea" id="commentText">
           <input type="submit">
         </form>
       </div>
@@ -54,7 +57,8 @@
 
     <script id="comment-template" type="text/x-lodash-template">
       // holds an individual comment
-      <footer></footer> // commenter name
+      <p><%= commentText %></p>
+      <footer>Posted by: <%= commenterName %></footer>
     </script>
 
 
