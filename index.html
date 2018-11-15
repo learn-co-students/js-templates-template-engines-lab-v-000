@@ -7,7 +7,6 @@
 
     <main>
       <!-- Post Form -->
-      <!-- submit using createPost() -->
       <form id="post-form" onsubmit="createPost(); return false">
         Title: <input type="text" id="postTitle"><br><br>
         Author: <input type="text" id="postAuthor"><br><br>
@@ -21,34 +20,24 @@
     <script src="index.js"></script>
 
     <!-- templates -->
-
     <script id="page-template" type="text/x-lodash-template">
-      // represents the page of a blog post
-      // has a div id=sidebar and div if=post (post will hold the blog post)
       <div id="sidebar"></div>
       <div id="post"></div>
     </script>
 
     <script id="post-template" type="text/x-lodash-template">
-      // represents the blog post itself
       <article>
-        // header for the post title
         <header><h2><%- postTitle %></h2></header>
         <p><%- postBody %><p>
-        // footer for author
         <footer>Posted by: <%- postAuthor %></footer>
       </article>
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-      // container for the collection of comments on the blog post
-      // and for the comment form
-      // has a div with id "comments"
-      // form submits using postComment()
       <div id="comments">
+      <h3>Comments</h3>
         <form onsubmit="postComment(); return false">
-        // insert individual comments in comments section
-          Name: <input type="text" id="commenterNamer"><br><br>
+          Name: <input type="text" id="commenterName"><br><br>
           Comment: <input type="textarea" id="commentText"><br><br>
           <input type="submit">
         </form>
@@ -56,13 +45,9 @@
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
-      // holds an individual comment
       <p><%= commentText %></p>
       <footer>Posted by: <%= commenterName %></footer>
     </script>
-
-
-
 
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>

@@ -25,9 +25,17 @@ function createPost() {
   postDiv.innerHTML = postSection
   // also insert the commentsSection(the form and future comments) into the footer tag
   postDiv.getElementsByTagName("footer")[0].innerHTML += commentsSection
-
 }
 
 function postComment() {
   let commentTemplate = _.template(document.getElementById("comment-template").innerHTML)
+
+  let commentText = document.getElementById("commentText").value
+  let commenterName = document.getElementById("commenterName").value
+
+  let commentSegment = commentTemplate({'commentText': commentText, 'commenterName': commenterName})
+
+  let commentsDiv = document.getElementById("comments")
+
+  commentsDiv.innerHTML = commentSegment
 }
