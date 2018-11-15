@@ -24,7 +24,7 @@ function createPost() {
   // put postTemplate and post variables in the <div id="post"> in pageTemplate
   postDiv.innerHTML = postSection
   // also insert the commentsSection(the form and future comments) into the footer tag
-  postDiv.getElementsByTagName("footer").innerHTML = commentsSection
+  postDiv.getElementsByTagName("footer")[0].innerHTML += commentsSection
 
 }
 
