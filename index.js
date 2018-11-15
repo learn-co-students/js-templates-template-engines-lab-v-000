@@ -36,6 +36,5 @@ function postComment() {
   let commentSegment = commentTemplate({'commentText': commentText, 'commenterName': commenterName})
 
   let commentsDiv = document.getElementById("comments")
-
-  commentsDiv.innerHTML = commentSegment
+  commentsDiv.innerHTML += commentSegment
 }
