@@ -7,52 +7,58 @@
     <main>
 
       <!-- Make the form for the post-->
-      <form id="post-form" onsubmit="createPost(); return false;">
-        Title: <input type="text" id="postTitle"><br>
-        Author: <input type="text" id="postAuthor"><br>
-        Post: <input type="text" id="postBody"><br>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title:<input type="text" id="postTitle"><br>
+        Author:<input type="text" id="postAuthor"><br>
+        Post:<input type="text" id="postBody"><br>
         <input type="submit">
       </form>
+    </main>
+
+
+
 
 
       <script src="node_modules/lodash/lodash.min.js"></script>
       <script src="index.js"></script>
 
       <!--Make page-template-->
-      <script id="page-template" type="text/x-lodash-template">;
-        <div id="sidebar"</div>
-        <div id="post"</div>
+      <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+      </script>
+      <!--Make post-template-->
+      <script id="post-template" type="text/x-lodash-template">
+      <article>
+      <header><h2><%= postTitle %></h2></header>
+      <p><%= postBody %></p>
+      <footer>Posted By: <%= postAuthor %></footer>
+      </article>
       </script>
 
-      <!--Make post-template-->
-      <script id="post-template" type="text/x-lodash-template">;
-        <article>
-          <header><h2><%= title %></h2></header>
-          <p><%= body %></p>
-          <footer>Posted By: <%= author %></footer>
-        </article>
-      </script>
 
       <!--Make comments template-->
-      <script id="comments-template" type="text/x-lodash-template">;
-        <div id="comments"
-          <form onsubmit="postComment(); return false;">
-            Name: <input type="text" id="commenter"><br>
-            Comment: <input type="text" id="commentText"><br>
-            <input type="submit">
-          </form>
-        </div>
+      <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+      <form onsubmit="postComment();return false;">
+      Name:<input type="text" id="commenter"><br>
+      Comment:<input type="text" id="commentText"><br>
+      <input type="submit">
+      </form>
+      </div>
       </script>
 
-      <!--Make comment-template-->
-      <script id="comment-template" type="text/x-lodash-template">;
-        <div>
-          <p><%= comment %></p>
-          <footer>Posted by:<%= commenter %></footer>
-        </div>
+      <!--Make comment template-->
+      <script id="comment-template" type="text/x-lodash-template">
+      <div>
+      <p><%= comment %></p>
+      <footer>Posted By: <%= commenter %></footer>
+      </div>
       </script>
 
-    </main>
+
+
+
 
       <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
