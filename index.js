@@ -28,6 +28,7 @@ function postComment() {
   // use lodash templates
   let commentTemplate = document.getElementById("comment-template").innerHTML;
   let commentTemplateFn = _.template(commentTemplate);
+  // need to check if comment and/or commenter have values
   if (comment && commenter){
     let commentTemplateHTML = commentTemplateFn({comment: comment.value, commenter: commenter.value});
   }
