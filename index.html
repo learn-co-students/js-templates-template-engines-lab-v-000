@@ -16,24 +16,6 @@
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
 
-    <script id="page-template" type="text/x-lodash-template">
-      <div id="sidebar">
-      </div>
-      <div id="post">
-      </div>
-    </script>
-
-    <script id="post-template" type="text/x-lodash-template">
-      <article>
-        <header id="post-title">
-        </header>
-        <p>
-        </p>
-        <footer id="post-author">
-        </footer>
-      </article>
-    </script>
-
     <script id="comments-template" type="text/x-lodash-template">
       <div id="comments">
         <form onsubmit="postComment();return false;">
@@ -44,9 +26,36 @@
       </div>
     </script>
 
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+      </div>
+      <div id="post">
+      </div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+          <%- title %>
+        </header>
+        <p>
+          <%- body %>
+        </p>
+        <footer>
+          Posted by:  <%- author %>
+        </footer>
+      </article>
+
+      <br></br>
+    </script>
+
     <script id="comment-template" type="text/x-lodash-template">
-      <p></p>
-      <footer></footer>
+      <p>
+        <%- comment %>
+      </p>
+      <footer>
+        <%- commenter %>
+      </footer>
     </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
