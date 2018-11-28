@@ -2,12 +2,56 @@
 <html>
   <head>
     <title>JavaScript lodash Templates Lab</title>
+    <link rel="stylesheet" href="https://unpkg.com/basscss@8.0.1/css/basscss.min.css">
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="postTitle"><br>
+        Post: <input type="textarea" id="postBody"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+      </form>
+      <div id="page">
+      </div>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div class="page flex items-center">
+        <div id="post" class="mr-auto"></div>
+        <div id="sidebar" class="ml-auto"></div>
+      </div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <div class="post">
+        <article>
+          <header class="title"><h2><%- title %></h2></header>
+          <p class="postText"><%- postText %></p>
+          <footer class="author">Author: <%- author %></footer>
+        </article>
+      </div>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div class="comments">
+        <div id="comments"></div>
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="textarea" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="comment">
+        <div class="comment-body">"<%- comment %>"</div>
+        <div class="commenter">
+          <footer>Comment By: <%= commenter %></footer>
+        </div>
+        <br>
+      </div>
+    </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
