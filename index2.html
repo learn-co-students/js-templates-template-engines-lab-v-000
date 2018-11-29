@@ -29,21 +29,6 @@
         </footer>
       </article>
     </script>
-    <script id="comments-template" type="text/x-lodash-template">
-      <div id="comments"></div>
-      <form id="comment-form" onsubmit="postComment(); return false;">
-        Body: <input type="textarea" id="commentBody"><br>
-        Author: <input type="text" id="commentAuthor"><br>
-        <input type="submit">
-      </form>
-    </script>
-    <script id="comment-template" type="text/x-lodash-template">
-        <%- body %>
-      <footer>
-        <%- author %>
-      </footer>
-      <div id="post"></div>
-    </script>
 
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
