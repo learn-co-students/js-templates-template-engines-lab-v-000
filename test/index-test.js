@@ -43,7 +43,7 @@ describe('index', () => {
       expect(commentsTemplate).toExist("Must have a lodash template with an id of 'comments-template'");
       expect(commentsTemplate.type).toBe("text/x-lodash-template", "Must be of type text/x-lodash-template");
       expect(commentsTemplate.innerHTML).toMatch(/div id="comments"/, "Template must have a div with an id of 'comments'");
-      expect(commentsTemplate.innerHTML).toMatch(/form onsubmit="postComment()/, "Template must include a form to post comments");
+      expect(commentsTemplate.innerHTML).toMatch(/form onSubmit="postComment()/, "Template must include a form to post comments");
     })
     it('has a comment template', () => {
       var commentTemplate = document.getElementById("comment-template");
