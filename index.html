@@ -5,9 +5,82 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onSubmit="createPost(); return false;">
+        Title: <input type="text" id="postTitle" /><br>
+        Post Content: <input type="textarea" id="postContent" /><br>
+        Author: <input type="text" id="postAuthor" /><br>
+        <input type="submit" /><br>
+      </form>
+
+      <div id="remaining_content">
+      </div>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
+    <!-- LODASH TEMPLATES -->
+
+
+    <!-- PAGE TEMPLATE -->
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar">
+        <sidebar></sidebar>
+      </div>
+
+      <div id="post_and_comments">
+        <div id="post">
+        </div>
+
+        <div id="comments_section">
+          <div id="comment_form">
+          </div>
+
+          <div id="comments_for_post">
+          </div>
+        </div>
+
+      </div>
+    </script>
+
+
+    <!-- POST TEMPLATE -->
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><h3><%- postTitle %></h3></header>
+        <p><%- postContent %></p>
+        <footer>Posted By: <%- postAuthor %></footer>
+      </article>
+      <br>
+    </script>
+
+
+    <!-- COMMENTS TEMPLATE -->
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onSubmit="postComment(); return false;">
+          <label htmlFor="commenterName">Name:</label>
+          <input type="text" id="commenterName" /><br>
+
+          <label htmlFor="commentText">Comment:</label>
+          <input type="textarea" id="commentText" /><br>
+
+          <input type="submit" /><br>
+        </form>
+      </div>
+    </script>
+
+
+    <!-- COMMENT TEMPLATE -->
+    <script id="comment-template" type="text/x-lodash-template">
+    <div>
+      <p><%- commentText %></p>
+      <footer>Posted by: <%- commenterName %></footer>
+    </div>
+    </script>
+
+
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
