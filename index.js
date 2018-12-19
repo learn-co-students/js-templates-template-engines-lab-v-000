@@ -1,50 +1,31 @@
-
-
 function createPost() {
-  let title = document.getElementById('postTitle').value;
-  let post = document.getElementById('postText').value;
-  let author = document.getElementById('postAuthor').value;
+  // create template functions
+  var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
-  let postTemplate = document.getElementById('post-template').innerHTML;
-  let templateFn = _.template(postTemplate);
+  // get blog values
+  var postTitle = document.getElementById("postTitle").value;
+  var postAuthor = document.getElementById("postAuthor").value;
+  var post = document.getElementById("postBody").value;
 
-  let postsDiv = document.getElementById('posts');
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-  let templateHTML = templateFn({ title: title, post: post, author: author });
+  var blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+  var commentsSection = commentsTemplate();
+  var postElement = document.getElementById("post");
 
-  postsDiv.innerHTML += templateHTML;
-
-  refreshPage();
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 }
 
 
 function postComment() {
-  let commenter = document.getElementById('commenterName').value;
-  let comment = document.getElementById('commentText').value;
+  var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
-  let commentTemplate = document.getElementById('comment-template').innerHTML;
-  let templateFn = _.template(commentTemplate);
+  var commentText = document.getElementById("commentText").value;
+  var commenterName = document.getElementById("commenter").value;
 
-  let commentsDiv = document.getElementById('comments');
-
-  let templateHTML = templateFn({ comment: comment, commenter: commenter });
-
-  commentsDiv.innerHTML += templateHTML;
-
-  refreshPage();
-}
-
-function refreshPage() {
-  let posts = document.getElementById('posts').value;
-  let comments = document.getElementById('comments').value;
-  let sidebar = document.getElementById('sidebar').value;
-
-  let pageTemplate = document.getElementById('page-template').innerHTML;
-  let templateFn2 = _.template(pageTemplate);
-
-  let pageDiv = document.getElementById('page-template');
-
-  let templateHTML2 = templateFn2({ posts: posts, comments: comments, sidebar: sidebar });
-
-  pageDiv.innerHTML = templateHTML2;
+  var commentsSection = document.getElementById("comments");
+  commentsSection.innerHTML += commentTemplate({ 'commenter': commenterName, 'comment': commentText });
 }
