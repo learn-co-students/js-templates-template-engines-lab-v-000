@@ -13,6 +13,8 @@ function createPost() {
   let templateHTML = templateFn({ title: title, post: post, author: author });
 
   postsDiv.innerHTML += templateHTML;
+
+  refreshPage();
 }
 
 
@@ -28,4 +30,21 @@ function postComment() {
   let templateHTML = templateFn({ comment: comment, commenter: commenter });
 
   commentsDiv.innerHTML += templateHTML;
+
+  refreshPage();
+}
+
+function refreshPage() {
+  let posts = document.getElementById('posts').value;
+  let comments = document.getElementById('comments').value;
+  let sidebar = document.getElementById('sidebar').value;
+
+  let pageTemplate = document.getElementById('page-template').innerHTML;
+  let templateFn2 = _.template(pageTemplate);
+
+  let pageDiv = document.getElementById('page-template');
+
+  let templateHTML2 = templateFn2({ posts: posts, comments: comments, sidebar: sidebar });
+
+  pageDiv.innerHTML = templateHTML2;
 }

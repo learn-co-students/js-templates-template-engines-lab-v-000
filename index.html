@@ -8,6 +8,7 @@
 
       <div id="page-template">
         <div id="sidebar"></div>
+        <div id="post"></div>
 
         <div id="posts-template">
           <form id="post-form" onsubmit="createPost();return false;">
@@ -32,7 +33,7 @@
       </div>
 
     </main>
-    
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -42,36 +43,55 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
-
-
-
-     <script id="post-template" type="text/x-lodash-template">
-        <div class="post">
-          <h1 class="post-title"><%- title %></h1>
-          <div class="post-body"><%- post %></div>
-          <div class="post-author">
-            <footer>
-              <span class="posted-by">Posted By: </span>
-              <%- author %>
-            </footer>
-          </div>
-        </div>
-      </script>
   
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment();return false;">
+        Name: <input type="text" id="commenterName"><br>
+        Comment: <input type="textarea" id="commentText"><br>
+        <input type="submit">
+      </form>
+      <div id="comments"></div>
+    </script>
 
     <script id="comment-template" type="text/x-lodash-template">
       <div class="comment">
         <div class="comment-body"><%- comment %></div>
         <div class="commenter">
-          <p>
+          <footer>
             <span class="posted-by">Posted By: </span>
             <%- commenter %>
-          </p>
+          </footer>
         </div>
       </div>
+    </script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div class="page">
+        <div class="page-posts"><%- posts %></div>
+        <div class="page-comment"><%- comments %></div>
+      </div>
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+
+     <script id="post-template" type="text/x-lodash-template">
+        <article>
+          <div class="post">
+            <header class="post-title"><%- title %></header>
+            <div class="post-body"><%- post %></div>
+            <div class="post-author">
+              <footer>
+                <span class="posted-by">Posted By: </span>
+                <%- author %>
+              </footer>
+            </div>
+          </div>
+        </article>
     </script>
 
 
 
   </body>
 </html>
+
