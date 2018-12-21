@@ -1,40 +1,32 @@
 function createPost() {
     // event.preventDefault();
-    let main = document.querySelector('main');
+    let pageTemplate = _.template(document.getElementById('page-template').innerHTML);
+    let postTemplate = _.template(document.getElementById('post-template').innerHTML);
+    let commentsTemplate = _.template(document.getElementById('comments-template').innerHTML);
+
     let postTitle = document.getElementById('postTitle').value;
     let postAuthor = document.getElementById('postAuthor').value;
     let postBody = document.getElementById('postBody').value;
+    let main = document.querySelector('main');
 
-    let postTemplate = document.getElementById('post-template').innerHTML;
-    let templateFn = _.template(postTemplate);
+    main.innerHTML += pageTemplate();
 
-    let pageTemplate = document.getElementById('page-template').innerHTML;
-    let ptemplateFn = _.template(pageTemplate);
-    let templateHTML = templateFn({ postTitle: postTitle, postAuthor: postAuthor, postBody: postBody });
-    let commentsTemplate = document.getElementById('comments-template').innerHTML;
-    let ctemplateFn = _.template(commentsTemplate);
-    main.innerHTML += ptemplateFn();
+    let blog = postTemplate({ postTitle: postTitle, postAuthor: postAuthor, postBody: postBody });
+    let comments = commentsTemplate();
     let postDiv = document.getElementById('post');
-    postDiv.innerHTML += templateHTML;
 
-    main.innerHTML += commentsTemplate;
+    postDiv.innerHTML += blog;
+    postDiv.getElementsByTagName('footer')[0].innerHTML += comments;
 
 }
 
 function postComment() {
+    let commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+
     let commenter = document.getElementById('commenterName').value;
     let comment = document.getElementById('commentText').value;
 
-    //create template string
-    let commentTemplate = document.getElementById('comment-template').innerHTML;
-    //create template function
-    let templateFn = _.template(commentTemplate);
-
     let commentsDiv = document.getElementById('comments');
-
-    // execute template function with JSON object for the interpolated values
-    let templateHTML = templateFn({ comment: comment, commenter: commenter });
-
-    //append, dont replace!
-    commentsDiv.innerHTML += templateHTML;
+    
+    commentsDiv.innerHTML += commentTemplate({ comment: comment, commenter: commenter });
 }
