@@ -18,12 +18,14 @@
   <script src="index.js"></script>
   <!-- Open this file and call `mocha.run()` in console to run tests -->
   <div id="mocha"></div>
+
   <script id="page-template" type="text/x-lodash-template">
     <div id="sidebar">
     </div>
     <div id="post">
     </div>
   </script>
+
   <script id="post-template" type="text/x-lodash-template">
     <article>
       <header><%- title %></header>
@@ -31,6 +33,7 @@
       <footer><%- author %></footer>
     </article>
   </script>
+
   <script id="comments-template" type="text/x-lodash-template">
     <form onsubmit="postComment()">
       Commment: <input type="text" id="commentBody"/><br/>
@@ -39,6 +42,7 @@
     </form>
     <div id="comments"></div>
   </script>
+
   <script id="comment-template" type="text/x-lodash-template">
     <p><%- comment %></p>
     <footer><%- commenter %></footer>
@@ -48,7 +52,6 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script>
     mocha.setup('bdd');
-
   </script>
   <script src="test/index-test.js"></script>
 </body>
