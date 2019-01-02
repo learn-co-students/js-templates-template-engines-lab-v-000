@@ -6,7 +6,7 @@
   <body>
     <main>
       <h1>Create a Post</h1>
-      <form id="post-form" onsubmit="createPost()">
+      <form id="post-form" onsubmit="createPost();return false;">
         Title: <input type="text" id="postTitle"><br>
         Body: <input type="text" id="postBody"><br>
         Author: <input type="text" id="postAuthor"><br>
@@ -37,17 +37,20 @@
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
-      <form onsubmit="postComment()">
-        Add comment: <input type="text" id="commentText"><br>
-        Your name: <input type="text" id="commenterName"><br>
-        <input type="submit">
-      </form>
-      <div id="comments"></div>
+      <div id="comments">
+        <form onsubmit="postComment()">
+          Add comment: <input type="text" id="commentText"><br>
+          Your name: <input type="text" id="commenterName"><br>
+          <input type="submit">
+        </form>
+      </div>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
-      <p><%= comment %></p>
-      <footer>Posted By: <%= commenter %></footer>
+      <div>
+        <p><%= comment %></p>
+        <footer>Posted By: <%= commenter %></footer>
+      </div>
     </script>
   </body>
 </html>
