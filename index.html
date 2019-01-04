@@ -22,22 +22,24 @@
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
     <script id="page-template" type="text/x-lodash-template">
-      <div class="sidebar"></div>
-      <div class="post"><%= body %></div>
+      <div id="sidebar"></div>
+      <div id="post"><%= body %></div>
     </script>
-    <article>
-      <script id="post-template" type="text/x-lodash-template">
-      <div class="header"><%= title %></div>
-      <div class="footer">Author: <%= author %></div>
-      </script>
-    </article>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <div class="header"><%= title %></div>
+        <div class="footer">Author: <%= author %></div>
+      </article>
+    </script>
     <script id="comments-template" type="text/x-lodash-template">
       //form for posting comments including commenter name and comment text
+      <div id="comments">
       <form onsubmit="postComment();return false;">
         Name: <input type="text" id="commenterName"><br>
         Comment: <input type="textarea" id="commentText"><br>
         <input type="submit">
       </form>
+      </div>
     </script>
     <script id="comment-template" type="text/x-lodash-template">
       <div class="comment">
