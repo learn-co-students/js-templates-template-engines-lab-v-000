@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style type="text/css">
+    header {
+      color: #26b72b;
+      font-size: larger;
+    }
+    footer {
+      font-style: italic;
+    }
+    </style>
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+    <form id="post-form" onSubmit="return createPost(event)">
+      Title: <input type="text" id="postTitle"><br>
+      Body: <input type="text" id="postBody"><br>
+      Author <input type="text" id="postAuthor"><br>
+      <input type="submit">
+    </form>
     <main>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><%- title %></header>
+        <p><%- body %></p>
+        <footer>Written by: <%- author %></footer>
+      </article>
+    </script>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+      <div id="post"></div>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="text" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <div>
+        <p><%= comment %></p>
+        <footer>Posted by: <%= commenter %></footer>
+      </div>
+    </script>
+
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
@@ -15,5 +59,9 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+
+
+
   </body>
 </html>
