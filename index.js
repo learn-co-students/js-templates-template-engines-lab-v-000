@@ -9,12 +9,16 @@ let commentsTemplate = document.getElementById("comments-template").innerHTML
 let commentTemplate = document.getElementById("comment-template").innerHTML
 
 let templateFn = _.template(postTemplate)
+let pageTemplateFn = _.template(pageTemplate)
 
 let postsDiv = document.getElementById("posts")
 
+let pageTemplateHTML = pageTemplateFn
 let templateHTML = templateFn({title: title, postText: postText, author: author})
 
+document.innerHTML+=pageTemplateFn
 postsDiv.innerHTML += templateHTML
+
   }
 
 

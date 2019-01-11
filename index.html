@@ -19,6 +19,12 @@
 
       <div id="comments">
       </div>
+      <form onsubmit="postComment();return false;" id="comment-form">
+        Name: <input type="text" id="commenterName">
+        Comment: <input type="textarea" id="commentText">
+
+        <input type="submit">
+      </form>
 
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
@@ -30,8 +36,8 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script id="page-template" type="text/x-lodash-template">
-          <div class="sidebar">
-          <div class="post">
+          <div id="sidebar">
+          <div id="post">
           </div>
           </div>
     </script>
@@ -46,7 +52,7 @@
         </article>
     </script>
     <script id="comments-template" type="text/x-lodash-template">
-        <div class="comments">
+        <div id="comments">
         </div>
 
         <form onsubmit="postComment();return false;" id="post-form">
