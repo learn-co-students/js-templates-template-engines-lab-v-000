@@ -20,5 +20,13 @@ function createPost() {
 }
 
 function postComment() {
+  // create comment template
+  let commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
+  // get comment values
+  let comment = document.getElementById('comment').value;
+  let commenter = document.getElementById('commenter').value;
+
+  let commentsDiv = document.getElementById('comments');
+  commentsDiv.innerHTML += commentTemplate({ comment: comment, commenter: commenter });
 }
