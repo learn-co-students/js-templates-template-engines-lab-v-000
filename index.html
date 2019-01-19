@@ -4,7 +4,21 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
-    <main>
+    <main id="container">
+      <form action="" id="post-form" onsubmit="createPost();return false;">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title">
+
+        <label for="post-author">Author</label>
+        <input type="text" id="post-author">
+
+        <label for="post-content">Post</label>
+        <textarea name="" id="post-content" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="Create Post">
+      </form>
+
+
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -12,8 +26,48 @@
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="post"></div>
+      <div id="sidebar"></div>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+
+        <header class="post-header"><%= title %></header>
+        <article class="post-body"><%= content %></article>
+        <footer class="post-footer"><%= author %></footer>
+
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments"></div>
+      <form onsubmit="postComment();return false;">
+        <label for="comment-author">Commenter</label>
+        <input type="text" id="comment-author">
+
+        <label for="comment-content">Comment</label>
+        <textarea name="" id="comment-content" cols="30" rows="10"></textarea>
+
+        <input type="submit"/>
+      </form>
+
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+
+        <div class="comment-body"><%= comment %></div>
+        <footer class="comment-footer"><%= commenter %></footer>
+
+    </script>
+
+
   </body>
 </html>
