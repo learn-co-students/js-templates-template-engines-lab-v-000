@@ -14,14 +14,8 @@
 			</form>
 			<script id="page-template" type="text/x-lodash-template">
 				<div class="page">
-					<header><%- title %></header>
-					<div class="page-body"><%- post %></div>
-					<footer>
-						Posted By: 
-							<span class="posted-by">
-								<%- author %>
-							</span>
-					</footer>
+					<div id="sidebar"></div>
+					<div id="post"></div>
 				</div>
 			</script>
 			<script id="post-template" type="text/x-lodash-template">
@@ -34,17 +28,38 @@
 								<%- author %>
 							</span>
 					</footer>
+					
+					<form onsubmit="postComment();return false;" id="comment-form">
+						Comment: <input type="textarea" id="comment"><br>
+						Author: <input type="text" id="commentAuthor"><br>
+						<input type="submit">
+					</form>
+
+					<div id="comment-binding"></div>
 				</article>
 			</script>
-			<script id="commenet-template" type="text/x-lodash-template">
+			<script id="comment-template" type="text/x-lodash-template">
 				<article class="comment">
-					<div class="comment-body"><%- comment %></div>
+					<div class="comments"><%- comment %></div>
 					<footer>
 						Expressed By: 
 							<span class="expressed-by">
 								<%- author %>
 							</span>
 					</footer>
+				</article>
+			</script>
+			<script id="comments-template" type="text/x-lodash-template">
+				<article class="comments">
+					<!-- 
+						<form onsubmit="postComment();return false;" id="comment-form">
+							Comment: <input type="textarea" id="comment"><br>
+							Author: <input type="text" id="commentAuthor"><br>
+							<input type="submit">
+						</form>
+					-->
+					<div id="comments"></div>
+					<footer>
 				</article>
 			</script>
 

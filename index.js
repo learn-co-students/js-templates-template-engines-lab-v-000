@@ -10,6 +10,7 @@ function createPost() {
   let postTemplate = document.getElementById('post-template').innerHTML;
  
   //create template function
+	let pageTemplateFn = _.template(pageTemplate);
   let templateFn = _.template(postTemplate);
  
   let postDiv = document.getElementById('post-binding');
