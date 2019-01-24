@@ -11,12 +11,7 @@
         Post: <input type="text" id="postBody"><br>
         <input type="submit">
       </form>
-      <div id="posts">
-
-      </div>
     </main>
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="index.js"></script>
 
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -43,7 +38,8 @@
       <article>
         <header><h2><%- title %></h2><header>
         <p><%- body %></p>
-        <footer>Posted by: <%= poster %></footer>
+        <footer>Posted by: <%- poster %></footer>
+        <p>+++++++</p>
       </article>
     </script>
 
