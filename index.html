@@ -4,8 +4,15 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
+    
     <main>
+      <form id="post-form" onSubmit="createPost()"></form>
+        <script id="page-template" type="text/x-lodash-template">
+          <div id="sidebar"></div>
+          <div id="post"></div>
+        </script>
     </main>
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -15,5 +22,23 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>Post Title</header>
+        <footer>Post Author</footer>
+      </article>
+    </script>
+    
+    <script id="comments-template" type="text/x-lodash-template">
+      <form onsubmit="postComment()">
+        <div id="comments"></div>
+      </form>
+    </script>
+    
+    <script id="comment-template" type="text/x-lodash-template">
+      <footer></footer>
+    </script>
+    
   </body>
 </html>
