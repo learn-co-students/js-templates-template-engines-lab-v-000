@@ -15,5 +15,18 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <form onsubmit="postForm();return false;">
+
+         Name: <input type="text" id="commenterName"><br>
+         Comment: <input type="textarea" id="commentText"><br>
+         <input type="submit">
+        </form>
+    
+       <div id="comments-template"></div>
+       <script id="post-form" type="text/x-lodash-template">
+      
+      
+      </script>
   </body>
 </html>
