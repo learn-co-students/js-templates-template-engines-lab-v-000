@@ -8,11 +8,23 @@
 <body>
     <main>
         <form id="post-form" onsubmit="createPost(); return false;">
-            Title: <input type="text" id="postTitle"></br>
-            Content: <input type="textarea" id="postText"></textarea>
-            </br>
-            Author: <input type="text" id="postAuthor"></br>
-            <input type="submit">
+          <table>
+            <tbody>
+              <tr>
+                <td>Title:</td>
+                <td><input type="text" id="postTitle"></br></td>
+              </tr>
+              <tr>
+                <td>Content:</td>
+                <td><textarea id="postText"></textarea></td>
+              </tr>
+              <tr>
+                <td>Author:</td>
+                <td><input type="text" id="postAuthor"></td>
+              </tr>
+              <tr><td><input type="submit"></td></tr>
+            </tbody>
+          </table>
         </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
@@ -30,42 +42,42 @@
         <div id="sidebar"></div>
         <div id="post"></div>
     </script>
-
     <script id="post-template" type="text/x-lodash-template">
         <article>
-            <header>
-                <%- title %>
-            </header>
-            <p>
-                <%- text %>
-            </p>
+            <header><%- title %></header>
+            <p><%- text %></p>
             <footer>
                 <span class="posted-by">Posted By: </span>
                 <%- author %>
             </footer>
-            <article>
+          </article>
+          <div id="comments"></div>
     </script>
-
     <script id="comments-template" type="text/x-lodash-template">
-        <div id="comments">
-            <form onsubmit="postComment();return false;">
-                Name: <input type="text" id="commenter"><br> Comment: <input type="text" id="commentText"><br>
-                <input type="submit">
-            </form>
-        </div>
-
+          <form onsubmit="postComment();return false;">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Name:</td>
+                  <td><input type="text" id="commenter"></td>
+                </tr>
+                <tr>
+                  <td>Comment:</td>
+                  <td><textarea id="commentText"></textarea></td>
+                </tr>
+                <tr><td><input type="submit"></td></tr>
+              </tbody>
+            </table>
+          </form>
     </script>
-
     <script id="comment-template" type="text/x-lodash-template">
-        <p>
-            <%- comment %>
-        </p>
-        <footer>
-            <span class="posted-by">Posted By: </span>
-            <%- commenter %>
-        </footer>
+      <article>
+          <p><%- comment %></p>
+          <footer>
+              <span class="posted-by">Posted By: </span>
+              <%- commenter %>
+          </footer>
+        </article>
     </script>
-
 </body>
-
 </html>
