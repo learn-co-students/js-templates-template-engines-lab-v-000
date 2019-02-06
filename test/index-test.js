@@ -21,6 +21,7 @@ describe('index', () => {
         createPost()
         expect(spy).toHaveBeenCalledWith(document.getElementById("page-template").innerHTML)
         expect(spy).toHaveBeenCalledWith(document.getElementById("post-template").innerHTML)
+        expect(spy).toHaveBeenCalledWith(document.getElementById("comments-template").innerHTML)
       })
     })
 

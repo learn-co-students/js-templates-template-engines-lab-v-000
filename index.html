@@ -4,7 +4,13 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
-    <main>
+    <main id="main">
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="title">
+        Body: <input type="text" id="body">
+        Author: <input type="text" id="author">
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -15,5 +21,41 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+    <script id="page-template" type="text/x-lodash-template">
+      <div id="page">
+        <div id="sidebar"></div>
+        <div id="post"></div>
+      </div>
+    </script>
+    <script id="post-template" type="text/x-lodash-template">
+      <div id="post">
+        <article>
+          <header>
+            <%- title %>
+          </header>
+          <p><%- body %></p>
+          <footer>
+            <%= author %>
+          </footer>
+        </article>
+      </div>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">
+        <form onsubmit="postComment();return false;">
+          Comment: <input type="text" id="commentText">
+          Commenter: <input type="text" id="commenter">
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+      <div id="comment">
+        <%= comment %>
+        <footer>
+          <%= commenter %>
+        </footer>
+      </div>
+    </script>
   </body>
 </html>
