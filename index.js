@@ -9,7 +9,7 @@ function createPost(){
 
   // create template Functions
 
-  let pageTemplate = document.getElementById("page-template").innerHTMl;
+  let pageTemplate = document.getElementById("page-template").innerHTML;
 
   let postTemplate = document.getElementById("post-template").innerHTML;
 
@@ -17,7 +17,7 @@ function createPost(){
 
 
   //create template
-  let templateFn = _.template(postTemplate, pageTemplate, commentsTemplate);
+  let templateFn = _.template(postTemplate, pageTemplate);
 
   let mainDiv = document.getElementById('main');
 
