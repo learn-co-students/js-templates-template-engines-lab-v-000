@@ -20,6 +20,7 @@ function createPost(){
   let postTemplateFn = _.template(postTemplate);
   let pageTemplateFn = _.template(pageTemplate);
 
+
   let postDiv = document.getElementById("post-id");
 
   let templateHTML = postTemplateFn({ title: postTitle, body: postBody, author: postAuthor});
@@ -35,7 +36,7 @@ function createPost(){
 function postComment() {
 
   /// get values for post
-  let commenter = document.getElementById('commmenter').value;
+  let commenter = document.getElementById('commenter').value;
 
   let comment = document.getElementById('commentText').value;
 
@@ -44,9 +45,9 @@ function postComment() {
 
   let templateFn = _.template(commentTemplate);
 
-  let commentsDiv = document.getElementById('comments');
+  let commentsDiv = document.getElementById("comments");
 
-  let templateHTML = templateFn({ comment: comment, commenter: commenter });
+  let templateHTML = templateFn({ comment: commentText, commenter: commenter });
 
   commentsDiv.innerHTML += templateHTML;
 }
