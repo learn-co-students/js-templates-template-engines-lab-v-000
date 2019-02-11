@@ -1,36 +1,45 @@
 function createPost(){
 
+  // get values
+  let postTitle = document.getElementById("postTitle").value;
+
+  let postBody = document.getElementById("postBody").value;
+
+  let postAuthor = document.getElementById("postAuthor").value;
+
   // create template Functions
-  let postTemplate = document.getElementById("post-template").innerHTML;
 
   let pageTemplate = document.getElementById("page-template").innerHTMl;
 
+  let postTemplate = document.getElementById("post-template").innerHTML;
+
   let commentsTemplate = document.getElementById("comments-template").innerHTML;
-  // get values
-  let title = document.getElementById("title").value;
-  let body = document.getElementById("body").value;
-  let author =document.getElementById("author").value;
+
 
   //create template
-  let templateFn = ._template(postTemplate);
+  let templateFn = _.template(postTemplate, pageTemplate, commentsTemplate);
 
-  let postDiv = document.getElementById('main');
+  let mainDiv = document.getElementById('main');
 
   let templateHTML = templateFn({ title: postTitle, body: postBody, author: postAuthor});
 
-  postDiv.innerHTML += templateHTML;
-
+  // append
+  mainDiv.innerHTML += templateHTML;
 }
 
 
 
 
+
 function postComment() {
-  //create template function for post comment
-  let commentTemplate = document.getElementById('comment-template').innerHTML;
+
   /// get values for post
   let commenter = document.getElementById('commmenter').value;
+
   let comment = document.getElementById('commentText').value;
+
+  //create template function for post comment
+  let commentTemplate = document.getElementById('comment-template').innerHTML;
 
   let templateFn = _.template(commentTemplate);
 
