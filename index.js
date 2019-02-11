@@ -17,14 +17,15 @@ function createPost(){
 
 
   //create template
-  let templateFn = _.template(postTemplate, pageTemplate);
+  let postTemplateFn = _.template(postTemplate);
+  let pageTemplateFn = _.template(pageTemplate);
 
-  let mainDiv = document.getElementById('main');
+  let postDiv = document.getElementById("post-id");
 
-  let templateHTML = templateFn({ title: postTitle, body: postBody, author: postAuthor});
+  let templateHTML = postTemplateFn({ title: postTitle, body: postBody, author: postAuthor});
 
   // append
-  mainDiv.innerHTML += templateHTML;
+  postDiv.innerHTML += templateHTML;
 }
 
 
