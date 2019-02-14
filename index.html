@@ -9,11 +9,12 @@
         Title: <input type="text" id='postTitle'> <br>
         Body: <input type="text" id='postText'> <br>
         Author: <input type="text" id='postAuthor'> <br>
-        <inputt type="submit"></inputt>
+        <input type="submit">
       </form>
     </main>
     
     <script src="node_modules/lodash/lodash.min.js"></script>
+    
     <!-- LODASH TEMPLATES -->
     <script id="page-template" type="text/x-lodash-template">
       <sidebar>
@@ -25,21 +26,32 @@
     <script id="post-template" type="text/x-lodash-template">
       <article>
         <header>
+          <%= title %>
         </header>
+        <%= body %>
         <footer>
+          <%= author %>
         </footer>
       </article>
     </script>
 
     <script id="comments-template" type="text/x-lodash-template">
       <container>
-
+        <form onsubmit="submitComment(); return false;">
+          Name: <input type="text" id="commenter"> <br>
+          Comment: <input type="text" id="comment" <br>
+          <input type="submit">
+        </form>
       </container>
     </script>
 
     <script id="comment-template" type="text/x-lodash-template">
-      <p></p>
-      <footer</footer>
+      <p>
+        <%= comment %>
+      </p>
+      <footer>
+        <%= commenter %>
+      </footer>
     </script>
 
 
