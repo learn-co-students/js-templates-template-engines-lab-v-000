@@ -5,8 +5,44 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id='postTitle'> <br>
+        Body: <input type="text" id='postText'> <br>
+        Author: <input type="text" id='postAuthor'> <br>
+        <inputt type="submit"></inputt>
+      </form>
     </main>
+    
     <script src="node_modules/lodash/lodash.min.js"></script>
+    <!-- LODASH TEMPLATES -->
+    <script id="page-template" type="text/x-lodash-template">
+      <sidebar>
+      </sidebar>
+      <post>
+      </post>
+    </script>
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+        </header>
+        <footer>
+        </footer>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <container>
+
+      </container>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <p></p>
+      <footer</footer>
+    </script>
+
+
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
