@@ -1,24 +1,46 @@
 function createPost() {
+    // VARIABLE DECLARATIONS: Grab user input from form and store in variables
     let title = document.getElementById('postTitle').value;
-    let body = document.getElementById('postbody').value;
+    let body = document.getElementById('postText').value;
     let author = document.getElementById('postAuthor').value;
+    let mainTag = document.querySelector('main');
 
-    // grab the templates from lodash script file
-
+    // grab raw HTML text from the templates from lodash script file in index.html
     let pageTemplate = document.getElementById('page-template').innerHTML;
     let postTemplate = document.getElementById('post-template').innerHTML;
+    let commentsTemplate = document.getElementById('comments-template').innerHTML;
     
+    // use lodash to create function object to be accessed through newly declared variables
     let pageTemplateFunction = _.template(pageTemplate);
     let postTemplateFunction = _.template(postTemplate);
+    let commentsTemplateFunction = _.template(commentsTemplate);
 
+    // hold onto template functions to be called later
     let pageHTML = pageTemplateFunction();
     let postHTML = postTemplateFunction( { title: title, body: body, author: author });
+    let commentsMainHTML = commentsTemplateFunction();
 
+    // Create initial view in index...
+    mainTag.innerHTML += pageHTML;  
+    mainTag.innerHTML += commentsMainHTML;
 
-    let mainTag = document.getElementsByTagName('main')
-    mainTag.innerHTML += pageHTML;
+    // append templates to main HTML element (execution phase)
+    mainTag.querySelector('#post').innerHTML += postHTML;
 }
 
 function postComment() {
+    // VARIABLE DECLARATIONS: Grab user input from form and store in variables
+    let mainTag = document.querySelector('main');
+    let comment = document.getElementById('comment').value;
+    let commenter = document.getElementById('commenter').value;
 
+    // grab raw HTML text from the templates from lodash script file in index.html
+    let commentTemplate = document.getElementById('comment-template').innerHTML;
+
+    // use lodash to create function object to be accessed through newly declared variable
+    let commentFunction = _.template(commentTemplate);
+
+    // hold onto template function to be called later;
+    let commentHTML = commentFunction( { comment: comment, commenter: commenter });
+    mainTag.querySelector('#comments').innerHTML += commentHTML;
 }
