@@ -1,3 +1,6 @@
+// THIS NEEDS TO BE UPDATED TO ALLOW FOR COMMENTS TO APPEAR RIGHT BELOW THE LAST COMMENT THAT WAS POSTED AND ORGANIZED BY COMMENTS (ie. COMMENTS RIGHT BELOW RELEVANT POST)
+
+
 function createPost() {
     // VARIABLE DECLARATIONS: Grab user input from form and store in variables
     let title = document.getElementById('postTitle').value;
