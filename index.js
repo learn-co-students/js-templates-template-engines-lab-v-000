@@ -30,7 +30,7 @@ function createPost() {
 
 function postComment() {
     // VARIABLE DECLARATIONS: Grab user input from form and store in variables
-    let mainTag = document.querySelector('main');
+    let commentsDiv = document.querySelector('#comments');
     let comment = document.getElementById('comment').value;
     let commenter = document.getElementById('commenter').value;
 
@@ -42,5 +42,5 @@ function postComment() {
 
     // hold onto template function to be called later;
     let commentHTML = commentFunction( { comment: comment, commenter: commenter });
-    mainTag.querySelector('#comments').innerHTML += commentHTML;
+    commentsDiv.innerHTML += commentHTML;
 }
