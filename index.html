@@ -14,24 +14,39 @@
         </form>
     </main>
     <!-- templates -->
+    <!-- page template -->
     <script id="page-template" type="text/x-lodash-template">
         <div id="sidebar"></div>
         <div id="post"></div>
     </script>
+    <!-- post template -->
     <script id="post-template" type="text/x-lodash-template">
         <article>
-            <h2>
+            <header>
                 <%= title %>
-            </h2>
+            </header>
 
             <p>
                 <%= postBody %>
             </p>
 
-            <p>Posted by:
+            <footer>Posted by:
                 <%= author %>
-            </p>
+            </footer>
         </article>
+    </script>
+    <!-- comments template -->
+    <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+            <form id="comments-form" onsubmit="postComment();return false;">
+                Name: <input type="text" id="commenterName"><br> Comment: <input type="text" id="comment">
+                <input type="submit">
+            </form>
+        </div>
+    </script>
+    <script id="comment-template" type="text/x-lodash-template">
+            <p><%= comment %></p>
+            <footer> by: <%= name %></footer>
     </script>
 
     <script src="node_modules/lodash/lodash.min.js"></script>
@@ -47,29 +62,7 @@
     <script src="test/index-test.js"></script>
 
 
-    <script id="page-template" type="text/x-lodash-template">
-        <div id="sidebar"></div>
-        <div id="post"></div>
-    </script>
-    <script id="post-template" type="text/x-lodash-template">
-        <div class="posts">
-            <div class="post-title">
-                <h2>
-                    <%= title %>
-                </h2>
-            </div>
-            <div class="post">
-                <p>
-                    <%= postBody %>
-                </p>
-            </div>
-            <div>
-                <p>Posted by:
-                    <%= author %>
-                </p>
-            </div>
-        </div>
-    </script>
+    
 </body>
 
 </html>
