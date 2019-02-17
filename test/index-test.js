@@ -39,6 +39,7 @@ describe('index', () => {
 
   describe('templates', () => {
     it('has a comments template', () => {
+
       var commentsTemplate = document.getElementById("comments-template");
       expect(commentsTemplate).toExist("Must have a lodash template with an id of 'comments-template'");
       expect(commentsTemplate.type).toBe("text/x-lodash-template", "Must be of type text/x-lodash-template");
