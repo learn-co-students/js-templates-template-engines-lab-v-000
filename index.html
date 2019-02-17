@@ -37,12 +37,13 @@
     </script>
     <!-- comments template -->
     <script id="comments-template" type="text/x-lodash-template">
-        <div id="comments">
-            <form id="comments-form" onsubmit="postComment();return false;">
+    <div id="comments">
+      </div>
+            <form onsubmit="postComment();return false;">
                 Name: <input type="text" id="commenterName"><br> Comment: <input type="text" id="comment">
                 <input type="submit">
             </form>
-        </div>
+
     </script>
     <script id="comment-template" type="text/x-lodash-template">
             <p><%= comment %></p>
@@ -62,7 +63,7 @@
     <script src="test/index-test.js"></script>
 
 
-    
+
 </body>
 
 </html>
