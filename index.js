@@ -1,17 +1,29 @@
 function createPost() {
-  let title = document.querySelector("#postTitle").value;
-  let body = document.querySelector("#postBody").value;
-  let author = document.querySelector("#postAuthor").value;
+// create template functions for execution
+var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+var postTemplate = _.template(document.getElementById("post-template").innerHTML);
+var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
-  let postTemplate = "<div class="post"><h1><%= title %></h1><p><%= body %></p><p>Posted by: <%= author %></p>";
+//get and assign blog values
 
-  let templateFn = _.template(postTemplate);
+var postTitle = document.getElementById("postTitle").value;
+var postAuthor = document.getElementById("postAuthor").value;
+var post = document.getElementById("postBody").value;
 
-  let post = document.querySelector("#post");
+document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
 
-  let templateHTML = templateFn({title: title, body: body, author: author});
+const blogSection = postTemplate({ 'title': postTitle, 'body': post, 'poster': postAuthor });
+const commentsSection = commentsTemplate();
+const postElement = document.getElementById("post");
 
-  post.innerHTML = templateHTML;
+postElement.innerHTML = blogSection;
+postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
+}
 
-
+function postComment() {
+  let commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+  let comment = document.getElementById("comment").value;
+  let commenter = document.getElementById("commenter").value;
+  let commentsSection = document.getElementById("comments");
+  commentsSection.innerHTML += commentTemplate({ 'commenter': commenter, 'comment': comment});
 }
