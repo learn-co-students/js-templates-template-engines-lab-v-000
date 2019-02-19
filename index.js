@@ -5,5 +5,7 @@ function createPost() {
 
   let postTemplate = "<div class="post"><h1><%= title %></h1><p><%= body %></p><p>Posted by: <%= author %></p>";
 
-  
+  let templateFn = _.template(postTemplate);
+
+
 }
