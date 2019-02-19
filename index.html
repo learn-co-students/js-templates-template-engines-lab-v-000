@@ -7,15 +7,33 @@
 <body>
   <main>
     <form id="post-form" onsubmit="createPost();return false">
-      Title: <input type="text" id="postTitle"> <br>
-      Author: <input type="text" id="postAuthor"> <br>
-      Post: <input type="text" id="postBody"> <br>
+      Title: <input type="text" id="postTitle">
+    <br><br>
+      Author: <input type="text" id="postAuthor">
+    <br><br>
+      Post: <input type="text" id="postBody">
+    <br><br>
       <input type="submit">
     </form>
   </main>
 
   <script src="node_modules/lodash/lodash.min.js"></script>
   <script src="index.js"></script>
+
+  <script id="page-template" type="text/x-lodash-template">
+    <div id="sidebar">
+    </div>
+    <div id="post">
+    </div>
+  </script>
+
+  <script id="post-template" type="text/x-lodash-template">
+    <div>
+      <header><h2><%= title %></h2></header>
+      <p><%= body %></p>
+      <footer>Posted by: <%= author %></footer>
+    </div>
+  </script>
 
   <script id="comments-template" type="text/x-lodash-template">
     <div id="comments">
@@ -30,26 +48,10 @@
   </script>
 
   <script id="comment-template" type="text/x-lodash-template">
-  // div to contain a single comment with footer for commenter name
-  <div>
-  <p><%= comment %></p>
-  <footer>Posted by: <%= commenter %></footer>
-  </div>
-  </script>
-
-  <!-- div to contain post with header and footer, wrapped in article -->
-  <script id="post-template" type="text/x-lodash-template">
-  <article>
-    <header><h2><%- title %></h2></header>
-    <p><%- body %></p>
-    <footer>Posted by: <%= poster %></footer>
-  </article>
-  </script>
-
-  <!-- template for the page of the blog post, includes side bar and post element  -->
-  <script id="page-template" type="text/x-lodash-template">
-  <div id="sidebar"></div>
-  <div id="post"></div>
+    <div>
+      <p><%= comment %></p>
+      <footer>Posted by: <%= commenter %></footer>
+    </div>
   </script>
 
 
