@@ -7,7 +7,7 @@ function createPost() {
 
   let templateFn = _.template(postTemplate);
 
-  let post = document.querySelector("post");
+  let post = document.querySelector("#post");
 
   let templateHTML = templateFn({title: title, body: body, author: author});
 
