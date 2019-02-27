@@ -5,7 +5,54 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost(); return false;">
+        Post Title: <input type="text" id="postTitle"><br>
+        Post Author: <input type="text" id="postAuthor"><br>
+        Post By: <input type="textarea" id="postBody"><br>
+        <input type="submit">
+      </form>
     </main>
+
+<!-- SCRIPT FILES -->
+    <!-- LODASH TEMPLATES -->
+    <!-- added line 23 because without it the author name would disappear to let comment section in there -->
+    <script id="page-template" type="text/x-lodash-template">
+      <div class="page">
+        <div id="sidebar"></div>
+        <div id="post"></div>
+        <div id="commentSection"></div> 
+      </div>
+    </script> 
+
+    <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header><%- postTitle %></header><br>
+        <p><%- postBody %></p><br>
+        <footer><%- postAuthor %></footer><br>
+        <comment></comment>
+      </article>
+    </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+      <div id="comments">  
+        <form onsubmit="postComment(); return false;">
+          Commenter Name: <input type="text" id="commenterName"><br>
+          Comment: <input type="text" id="commentText"><br>
+          <input type="submit">
+        </form>
+      </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+      <div class="comment">
+        <div id="comment-body"><%- comment %></div>
+        <footer id="commentAuthor">
+          Posted By: <%- commentAuthor >
+        </footer>
+      </div>
+    </script>
+
+    <!-- END OF LODASH TEMPLATES -->
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
