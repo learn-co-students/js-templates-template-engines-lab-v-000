@@ -5,7 +5,18 @@
   </head>
   <body>
     <main>
+        <div id = "page">
+            <form id="post-form" onsubmit="createPost();">
+                Title: <input type="text" id="postTitle"><br>
+                Body: <input type="text" id="postBody"><br>
+                Author: <input type="text" id="postAuthor"><br>
+                <input type="submit">
+            </form>
+        </div>
+        <div id="posts">
+        </div>
     </main>
+
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
@@ -15,5 +26,46 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
+
+    <script id="post-template" type="text/x-lodash-template">
+        <article>
+            <header><div class="post-title"><%= title %></div></header>
+            <div class="post-body"><%= body %></div>
+            <div class="post-author">
+                <footer>
+                    <span class="posted-by">Posted By: </span>
+                    <%= author %>
+                </footer>
+            </div>
+        </article>
+    </script>
+    <script id="page-template" type="text/x-lodash-template">
+        <div id="sidebar">
+            <p>Sidebar item 1</p>
+            <p>Sidebar item 2</p>
+            <p>Sidebar item 3</p>
+        </div>
+
+        <div id="post">
+        </div>
+    </script>
+    <script id="comments-template" type="text/x-lodash-template">
+        <div id="comments">
+        <form onsubmit="postComment()">
+            Name: <input type="text" id="commenterName"><br>
+            Text: <input type="text" id="commentText"><br>
+            <input type="submit">
+        </form>
+        </div>
+    </script>
+
+    <script id="comment-template" type="text/x-lodash-template">
+        <div><%= commentText %></div>
+            <footer>
+                <span class="posted-by">Posted By: </span>
+                <%= commenterName %>
+            </footer>
+    </script>
+
   </body>
 </html>
