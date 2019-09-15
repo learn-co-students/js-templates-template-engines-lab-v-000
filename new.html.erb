@@ -1,0 +1,42 @@
+<header class="align-center">
+	<h2>Register for a BeerMe Account</h2>
+</header>
+
+<div class="box center">
+	<%= form_for(@user) do |f| %>
+		<% if @user.errors.any? %>
+			<div class="box 6u 12u$(xsmall)" id="error_explanation">
+				<h4>
+					<%= pluralize(@user.errors.count, "error") %>
+					prohibited this user from being created:
+				</h4>
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
+		<div>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %> <br>
+		</div>
+		<div>
+		  <%= f.label :last_name %>
+		  <%= f.text_field :last_name %> <br>
+		</div>
+		<div>
+			<%= f.label "Email Address" %>
+		  <%= f.email_field :email %> <br>
+		</div>
+		<div>
+			<%= f.label "Password (at least 8 characters)"%>
+		  <%= f.password_field :password %> <br>
+		</div>
+
+		<div class="align-center">
+			<%= f.submit "Register" %>
+		</div>
+	<% end %>
+</div>
