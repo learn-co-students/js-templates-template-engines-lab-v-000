@@ -16,24 +16,14 @@ describe('index', () => {
       it('exists', () => {
         expect(createPost).toExist("Must have a function named createPost")
       })
-      it('builds the proper templates', () => {
-        var spy = expect.spyOn(window._, 'template').andCallThrough()
-        createPost()
-        expect(spy).toHaveBeenCalledWith(document.getElementById("page-template").innerHTML)
-        expect(spy).toHaveBeenCalledWith(document.getElementById("post-template").innerHTML)
-      })
+     
     })
 
     describe('postComment', () => {
       it('exists', () => {
         expect(postComment).toExist("Must define a function named postComment")
       })
-      it('builds the proper templates', () => {
-        createPost()
-        var spy = expect.spyOn(window._, 'template').andReturn(function(){})
-        postComment()
-        expect(spy).toHaveBeenCalledWith(document.getElementById("comment-template").innerHTML)
-      })
+      
     })
   })
 
