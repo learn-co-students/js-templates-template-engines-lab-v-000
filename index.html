@@ -5,7 +5,48 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost()">
+        Title: <input type="text" id="postTitle"><br>
+        Content: <textarea type="text" id="postBody"></textarea><br>
+        Author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+    </form>
     </main>
+
+  <script id="page-template" type="text/x-lodash-template">
+    <div id="sidebar">
+    </div>
+    <div id="post">
+    </div>
+    </script>
+      <script id="post-template" type="text/x-lodash-template">
+      <article>
+        <header>
+        <div class="post-title"> <%= postTitle %>
+        </div><br><br>
+        <div class="post-body"> <%= postBody %>
+        </div><br><br>
+        </header>
+        <footer class="post-author"><%= postAuthor %>
+        </footer>
+        </article>
+      </script>
+
+    <script id="comments-template" type="text/x-lodash-template">
+    <div id="comments">
+    </div>
+    <form onsubmit="postComment()">
+      Name: <input type="text" id="commentAuthor"><br>
+      Content: <textarea type="text" id="commentBody"></textarea><br>
+      <input type="submit">
+    </form>
+
+</script>
+      <script id="comment-template" type="text/x-lodash-template">
+      <div class="commentBody"> <%=commentBody %> </div><br><br>
+        <footer class="commentAuthor"><%= commentAuthor %>
+        </footer>
+    </script>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
